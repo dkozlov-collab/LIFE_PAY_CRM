@@ -50,23 +50,16 @@ button{cursor:pointer}
   backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
   box-shadow:var(--shadow)
 }
-
 /* ── Логотип ── */
 .logo{width:142px;height:auto;display:block;margin-bottom:24px;color:#0b1930}
 .logo svg{width:100%;height:auto;display:block}
-html[data-theme=dark] .logo{color:#ffffff}
+html[data-theme=dark] .logo{color:#fff}
 .side-logo .logo{margin:0}
-
 /* ── Логин ── */
-#login{
-  min-height:100vh;display:grid;place-items:center;
-  padding:30px;position:relative;overflow:hidden
-}
+#login{min-height:100vh;display:grid;place-items:center;padding:30px;position:relative;overflow:hidden}
 #login:before{
-  content:"";position:absolute;width:800px;height:800px;
-  border-radius:50%;left:-330px;top:-330px;
-  background:radial-gradient(circle,rgba(0,160,255,.35),transparent 62%);
-  filter:blur(20px)
+  content:"";position:absolute;width:800px;height:800px;border-radius:50%;left:-330px;top:-330px;
+  background:radial-gradient(circle,rgba(0,160,255,.35),transparent 62%);filter:blur(20px)
 }
 .login-card{width:min(470px,100%);padding:34px;border-radius:30px;position:relative;z-index:1}
 .login-card h1{font-size:34px;margin:0 0 8px}
@@ -83,31 +76,31 @@ html[data-theme=dark] .logo{color:#ffffff}
 }
 .primary{
   border:0;border-radius:15px;padding:14px 18px;color:#fff;font-weight:800;
-  background:linear-gradient(100deg,#087cff,#15bfff);
-  box-shadow:0 12px 28px rgba(0,126,255,.26)
+  background:linear-gradient(100deg,#087cff,#15bfff);box-shadow:0 12px 28px rgba(0,126,255,.26)
 }
 .primary.block{width:100%}
 .primary[disabled]{opacity:.6;cursor:not-allowed}
-.error{min-height:22px;color:var(--red);font-size:13px;margin-top:12px}
+.error{min-height:22px;color:var(--red);font-size:13px;margin-top:12px;white-space:pre-wrap;word-break:break-word}
 .theme-btn{
-  position:fixed;right:22px;top:20px;width:44px;height:44px;
-  border-radius:50%;border:1px solid var(--line);
-  background:var(--panel);color:var(--text);z-index:5
+  position:fixed;right:22px;top:20px;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:var(--panel);color:var(--text);z-index:5
 }
-
+.demo-flag{
+  position:fixed;left:12px;bottom:12px;z-index:70;font-size:11px;font-weight:800;
+  padding:6px 12px;border-radius:999px;background:#f2b72f;color:#3a2a00
+}
 /* ── Лейаут ── */
 #app{display:grid;grid-template-columns:230px 1fr 320px;min-height:100vh}
 .sidebar{
-  padding:20px 14px;background:var(--sidebar);
-  border-right:1px solid var(--line);backdrop-filter:blur(28px);
-  position:sticky;top:0;height:100vh
+  padding:20px 14px;background:var(--sidebar);border-right:1px solid var(--line);
+  backdrop-filter:blur(28px);position:sticky;top:0;height:100vh
 }
 .side-logo{padding:10px 10px 25px}
 .nav{display:grid;gap:7px}
 .nav button{
   border:1px solid transparent;background:transparent;color:var(--text);
-  padding:12px 14px;border-radius:14px;text-align:left;
-  font-weight:650;display:flex;align-items:center;gap:10px
+  padding:12px 14px;border-radius:14px;text-align:left;font-weight:650;
+  display:flex;align-items:center;gap:10px
 }
 .nav button:hover{background:rgba(17,141,255,.09)}
 .nav button.active{
@@ -115,18 +108,15 @@ html[data-theme=dark] .logo{color:#ffffff}
   color:#fff;box-shadow:0 10px 28px rgba(17,141,255,.25)
 }
 .userbox{
-  position:absolute;bottom:18px;left:14px;right:14px;padding:12px;
-  border-radius:16px;border:1px solid var(--line);
-  background:var(--panel2);display:flex;gap:10px;align-items:center
+  position:absolute;bottom:18px;left:14px;right:14px;padding:12px;border-radius:16px;
+  border:1px solid var(--line);background:var(--panel2);display:flex;gap:10px;align-items:center
 }
 .avatar{
   width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(145deg,#0c8cff,#3e53ff);color:#fff;
-  font-weight:800;flex:none
+  background:linear-gradient(145deg,#0c8cff,#3e53ff);color:#fff;font-weight:800;flex:none
 }
 .userbox .small{font-size:12px;color:var(--muted);word-break:break-word}
 .userbox b{font-size:13px}
-
 /* ── Контент ── */
 .main{padding:22px 24px;min-width:0}
 .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
@@ -134,42 +124,33 @@ html[data-theme=dark] .logo{color:#ffffff}
 .sub{font-size:13px;color:var(--muted);margin-top:3px}
 .search{
   margin-left:auto;width:min(340px,35vw);border:1px solid var(--line);
-  background:var(--input);border-radius:14px;padding:11px 14px;
-  color:var(--text);outline:none
+  background:var(--input);border-radius:14px;padding:11px 14px;color:var(--text);outline:none
 }
 .search:focus{border-color:var(--blue)}
 .iconbtn{
-  width:42px;height:42px;border-radius:13px;
-  border:1px solid var(--line);background:var(--panel);
-  color:var(--text);flex:none
+  width:42px;height:42px;border-radius:13px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);flex:none
 }
-
 /* ── KPI ── */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .kpi{border-radius:22px;padding:19px;position:relative;overflow:hidden}
 .kpi:after{
-  content:"";position:absolute;width:100px;height:100px;
-  border-radius:50%;right:-35px;top:-40px;background:rgba(17,141,255,.13)
+  content:"";position:absolute;width:100px;height:100px;border-radius:50%;
+  right:-35px;top:-40px;background:rgba(17,141,255,.13)
 }
 .kpi .muted{color:var(--muted);font-size:13px}
 .kpi b{display:block;font-size:34px;margin-top:8px}
 .trend{color:var(--green);font-size:12px;margin-top:3px}
 .trend.bad{color:var(--red)}
-
 /* ── Графики ── */
 .chartgrid{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-top:16px}
 .card{border-radius:22px;padding:18px}
-.cardhead{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:12px;margin-bottom:10px
-}
+.cardhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
 .cardhead b{font-size:15px}
 .mini{font-size:12px;color:var(--muted)}
 .chart{
-  height:180px;display:flex;align-items:end;gap:12px;
-  padding:15px 6px 4px;
-  background:linear-gradient(180deg,rgba(17,141,255,.05),transparent);
-  border-radius:16px
+  height:180px;display:flex;align-items:end;gap:12px;padding:15px 6px 4px;
+  background:linear-gradient(180deg,rgba(17,141,255,.05),transparent);border-radius:16px
 }
 .bar{
   flex:1;max-width:52px;border-radius:10px 10px 3px 3px;
@@ -182,57 +163,33 @@ html[data-theme=dark] .logo{color:#ffffff}
   content:"";position:absolute;inset:29px;border-radius:50%;
   background:var(--bg2);box-shadow:inset 0 0 20px rgba(0,0,0,.12)
 }
-.donut b{
-  position:absolute;z-index:1;inset:0;
-  display:grid;place-items:center;font-size:23px
-}
+.donut b{position:absolute;z-index:1;inset:0;display:grid;place-items:center;font-size:23px}
 .legend{display:grid;gap:13px;font-size:13px}
 .legend span{display:flex;gap:9px;align-items:center}
 .dot{width:10px;height:10px;border-radius:50%;background:#13c8ff;flex:none}
 .dot.b{background:#187bff}.dot.p{background:#7047ff}
-
 /* ── Таблицы ── */
 .requests{margin-top:16px}
-.tablewrap{
-  overflow:auto;border-radius:16px;
-  border:1px solid var(--line);max-height:60vh
-}
+.tablewrap{overflow:auto;border-radius:16px;border:1px solid var(--line);max-height:60vh}
 table{width:100%;border-collapse:collapse;background:var(--table);font-size:12px}
-th,td{
-  padding:12px 10px;border-bottom:1px solid var(--line);
-  text-align:left;white-space:nowrap
-}
+th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
 th{
-  color:var(--muted);font-weight:700;
-  background:rgba(120,180,255,.07);position:sticky;top:0;
-  z-index:1;backdrop-filter:blur(8px)
+  color:var(--muted);font-weight:700;background:rgba(120,180,255,.07);
+  position:sticky;top:0;z-index:1;backdrop-filter:blur(8px)
 }
 tbody tr{cursor:pointer}
 tbody tr:hover td{background:rgba(17,141,255,.055)}
 tbody tr.sel td{background:rgba(17,141,255,.11)}
 .ellipsis{max-width:220px;overflow:hidden;text-overflow:ellipsis}
-.empty{padding:34px;text-align:center;color:var(--muted);font-size:13px}
+.empty{padding:34px;text-align:center;color:var(--muted);font-size:13px;white-space:pre-wrap}
 .skel{
   height:14px;border-radius:7px;
-  background:linear-gradient(
-    90deg,
-    rgba(130,180,240,.16),
-    rgba(130,180,240,.34),
-    rgba(130,180,240,.16)
-  );
-  background-size:200% 100%;
-  animation:sk 1.1s linear infinite;margin:14px 0
+  background:linear-gradient(90deg,rgba(130,180,240,.16),rgba(130,180,240,.34),rgba(130,180,240,.16));
+  background-size:200% 100%;animation:sk 1.1s linear infinite;margin:14px 0
 }
-@keyframes sk{
-  0%{background-position:200% 0}
-  100%{background-position:-200% 0}
-}
-
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 /* ── Бейджи ── */
-.badge{
-  display:inline-flex;align-items:center;
-  border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800
-}
+.badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800}
 .new{background:rgba(17,141,255,.16);color:#1986ff}
 .work{background:rgba(112,71,255,.16);color:#815eff}
 .done{background:rgba(22,201,154,.17);color:#0caa80}
@@ -243,90 +200,51 @@ tbody tr.sel td{background:rgba(17,141,255,.11)}
 .medium{background:rgba(242,183,47,.18);color:#bd8500}
 .low{background:rgba(22,201,154,.14);color:#08956f}
 .overdue{color:#ef334f;font-weight:900;margin-left:6px}
-.action{
-  border:1px solid var(--line);background:transparent;
-  color:var(--text);border-radius:9px;padding:6px 10px;font-size:11px
-}
+.action{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:9px;padding:6px 10px;font-size:11px}
 .action:hover{border-color:var(--blue);color:var(--blue)}
-
 /* ── Drawer ── */
 .drawer{
-  border-left:1px solid var(--line);background:var(--sidebar);
-  backdrop-filter:blur(28px);padding:18px;
-  position:sticky;top:0;height:100vh;overflow:auto
+  border-left:1px solid var(--line);background:var(--sidebar);backdrop-filter:blur(28px);
+  padding:18px;position:sticky;top:0;height:100vh;overflow:auto
 }
 .drawer h3{margin:2px 0 5px;font-size:20px}
 .drawer .muted{font-size:12px;color:var(--muted)}
 .detail{margin-top:20px}
 .detail-title{font-weight:800;font-size:12px;margin:17px 0 9px}
-.row{
-  display:grid;grid-template-columns:110px 1fr;
-  gap:8px;padding:5px 0;font-size:12px;align-items:start
-}
+.row{display:grid;grid-template-columns:110px 1fr;gap:8px;padding:5px 0;font-size:12px;align-items:start}
 .row span:first-child{color:var(--muted)}
 .row b{word-break:break-word;white-space:pre-wrap}
 .drawer-actions{display:grid;gap:8px;margin-top:18px}
-.drawer-actions button{
-  border-radius:12px;padding:11px;
-  border:1px solid var(--line);background:var(--panel);color:var(--text)
-}
+.drawer-actions button{border-radius:12px;padding:11px;border:1px solid var(--line);background:var(--panel);color:var(--text)}
 .drawer-actions .primary{color:#fff;border:0}
-
 /* ── Модалка ── */
 .modal{
-  position:fixed;inset:0;background:rgba(0,15,35,.48);
-  backdrop-filter:blur(10px);display:grid;place-items:center;
-  padding:20px;z-index:20
+  position:fixed;inset:0;background:rgba(0,15,35,.48);backdrop-filter:blur(10px);
+  display:grid;place-items:center;padding:20px;z-index:20
 }
-.modal-card{
-  width:min(820px,100%);max-height:90vh;
-  overflow:auto;border-radius:25px;padding:22px
-}
+.modal-card{width:min(820px,100%);max-height:90vh;overflow:auto;border-radius:25px;padding:22px}
 .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .full{grid-column:1/-1}
 .modal-head{display:flex;justify-content:space-between;align-items:center}
 .modal-head h3{margin:0}
 .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
-.secondary{
-  border:1px solid var(--line);background:var(--panel);
-  color:var(--text);padding:12px 18px;border-radius:12px
-}
-.kkt-item{
-  border:1px dashed var(--line);border-radius:16px;
-  padding:12px;margin-bottom:10px
-}
-.kkt-head{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:6px;font-size:12px;color:var(--muted);font-weight:700
-}
-.linkbtn{background:none;border:0;color:var(--red);font-size:12px;font-weight:700}
-
+.secondary{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:12px 18px;border-radius:12px}
+.kkt-item{border:1px dashed var(--line);border-radius:16px;padding:12px;margin-bottom:10px}
+.kkt-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12px;color:var(--muted);font-weight:700}
+.linkbtn{background:none;border:0;color:var(--red);font-size:12px;font-weight:700;cursor:pointer}
 /* ── Тосты ── */
 #toasts{position:fixed;right:20px;bottom:20px;display:grid;gap:10px;z-index:60}
 .toast{
-  padding:13px 16px;border-radius:14px;font-size:13px;
-  max-width:340px;color:#fff;box-shadow:var(--shadow);
-  animation:tin .25s ease
+  padding:13px 16px;border-radius:14px;font-size:13px;max-width:340px;color:#fff;
+  box-shadow:var(--shadow);animation:tin .25s ease;white-space:pre-wrap;transition:opacity .3s
 }
 .toast.err{background:linear-gradient(100deg,#ff4f6d,#ff7a5c)}
 .toast.ok{background:linear-gradient(100deg,#11b07f,#2ad0a5)}
-@keyframes tin{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:none}
-}
-
-/* ── Таб-панель организаций/пользователей ── */
+@keyframes tin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* ── Табы ── */
 .tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.tab{
-  border:1px solid var(--line);background:var(--panel2);
-  color:var(--muted);border-radius:10px;padding:8px 16px;
-  font-size:13px;font-weight:700
-}
-.tab.active{
-  background:linear-gradient(100deg,#087cff,#15bfff);
-  color:#fff;border-color:transparent
-}
-
+.tab{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:10px;padding:8px 16px;font-size:13px;font-weight:700}
+.tab.active{background:linear-gradient(100deg,#087cff,#15bfff);color:#fff;border-color:transparent}
 /* ── Адаптив ── */
 @media(max-width:1200px){
   #app{grid-template-columns:210px 1fr}
@@ -387,21 +305,19 @@ tbody tr.sel td{background:rgba(17,141,255,.11)}
       </div>
     </div>
   </aside>
-
   <main class="main">
     <div class="top">
       <div>
         <h2 id="pageTitle">CRM Система</h2>
         <div class="sub" id="pageSub">Управление заявками, организациями и исполнителями</div>
       </div>
-      <input id="search" class="search" placeholder="Поиск по заявкам, организациям, исполнителям…">
+      <input id="search" class="search" placeholder="Поиск по заявкам, организациям, исполнителям...">
       <button class="iconbtn" id="themeBtn2" type="button" title="Тема">🌙</button>
       <button class="iconbtn" id="reloadBtn" type="button" title="Обновить">⟳</button>
       <button class="iconbtn" id="logoutBtn" type="button" title="Выйти">↪</button>
     </div>
     <div id="content"></div>
   </main>
-
   <aside class="drawer" id="drawer"></aside>
 </section>
 
@@ -410,6 +326,19 @@ tbody tr.sel td{background:rgba(17,141,255,.11)}
 
 <script>
 'use strict';
+
+/* ══════════════════════════════════════════════
+   КОНФИГ  ←←← ЕДИНСТВЕННОЕ, ЧТО НУЖНО МЕНЯТЬ
+══════════════════════════════════════════════ */
+const CFG = {
+  // URL веб-приложения Google Apps Script. ОБЯЗАТЕЛЬНО заканчивается на /exec
+  API: 'https://script.google.com/macros/s/ВАШ_DEPLOYMENT_ID/exec',
+
+  // true — работать на локальных демо-данных без сервера (проверка интерфейса)
+  DEMO: false,
+
+  REQ_TIMEOUT: 20000
+};
 
 /* ══════════════════════════════════════════════
    ЛОГОТИП
@@ -469,7 +398,7 @@ const LOGO_SVG = `<svg viewBox="0 0 142.001 23.585" fill="none"
     125.988 15.6405H128.967Z" fill="currentColor"/>
 </svg>`;
 
-function mountLogos(root) {
+function mountLogos(root){
   (root || document).querySelectorAll('[data-logo]').forEach(el => {
     if (!el.firstElementChild) el.innerHTML = LOGO_SVG;
   });
@@ -477,11 +406,8 @@ function mountLogos(root) {
 mountLogos();
 
 /* ══════════════════════════════════════════════
-   КОНФИГ / СОСТОЯНИЕ
+   СОСТОЯНИЕ
 ══════════════════════════════════════════════ */
-const API         = '/.netlify/functions/api';
-const REQ_TIMEOUT = 20000;
-
 const STATE = {
   token:    sessionStorage.getItem('lifeToken') || '',
   me:       null,
@@ -492,7 +418,6 @@ const STATE = {
   selected: null,
   loading:  false
 };
-
 const $   = id => document.getElementById(id);
 const esc = v  => String(v ?? '').replace(/[&<>"']/g, m =>
   ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
@@ -500,16 +425,14 @@ const esc = v  => String(v ?? '').replace(/[&<>"']/g, m =>
 /* ══════════════════════════════════════════════
    ТЕМА
 ══════════════════════════════════════════════ */
-function currentTheme() { return localStorage.getItem('lifeTheme') || 'light'; }
-
-function applyTheme(t) {
+function currentTheme(){ return localStorage.getItem('lifeTheme') || 'light'; }
+function applyTheme(t){
   document.documentElement.dataset.theme = t;
   const icon = t === 'dark' ? '☀️' : '🌙';
   $('themeBtn').textContent = icon;
   if ($('themeBtn2')) $('themeBtn2').textContent = icon;
 }
-
-function toggleTheme() {
+function toggleTheme(){
   const t = currentTheme() === 'dark' ? 'light' : 'dark';
   localStorage.setItem('lifeTheme', t);
   applyTheme(t);
@@ -519,55 +442,203 @@ applyTheme(currentTheme());
 /* ══════════════════════════════════════════════
    ТОСТЫ
 ══════════════════════════════════════════════ */
-function toast(msg, type) {
-  const el      = document.createElement('div');
-  el.className  = 'toast ' + (type === 'ok' ? 'ok' : 'err');
+function toast(msg, type){
+  const el = document.createElement('div');
+  el.className   = 'toast ' + (type === 'ok' ? 'ok' : 'err');
   el.textContent = String(msg);
   $('toasts').appendChild(el);
   setTimeout(() => {
     el.style.opacity = '0';
-    setTimeout(() => el.remove(), 300);
-  }, 4200);
+    setTimeout(() => el.remove(), 320);
+  }, 5200);
 }
 
 /* ══════════════════════════════════════════════
    API
+   ─────────────────────────────────────────────
+   Причины прежней ошибки «405 Not Allowed» и их устранение:
+   1) Адрес вёл на /.netlify/functions/api — путь внутри статического
+      сайта. Статика (GitHub Pages / nginx) не принимает POST и отдаёт
+      HTML-страницу 405. Теперь запрос идёт прямо на Apps Script /exec.
+   2) Content-Type: application/json провоцирует preflight OPTIONS,
+      который Apps Script не обрабатывает → заменён на text/plain.
+   3) redirect:'follow' — Apps Script всегда редиректит на
+      googleusercontent.com, без этого ответ терялся.
+   4) Любой HTML-ответ теперь разбирается и превращается в понятное
+      сообщение, а не в «Сервер вернул не JSON: <html>...».
 ══════════════════════════════════════════════ */
-async function call(action, ...args) {
+function apiConfigured(){
+  return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec/.test(CFG.API);
+}
+
+async function call(action, ...args){
+  if (CFG.DEMO) return demoCall(action, args);
+
+  if (!apiConfigured()) {
+    throw new Error(
+      'CFG.API не настроен.\n' +
+      'Текущее значение: ' + CFG.API + '\n\n' +
+      'Укажите URL веб-приложения Apps Script, который заканчивается на /exec.\n' +
+      'Относительные пути вида /.netlify/functions/api на статическом\n' +
+      'хостинге дают ошибку 405 Not Allowed.'
+    );
+  }
+
   const ctrl  = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), REQ_TIMEOUT);
+  const timer = setTimeout(() => ctrl.abort(), CFG.REQ_TIMEOUT);
   let res, raw;
 
   try {
-    res = await fetch(API, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ action, args }),
-      signal:  ctrl.signal
+    res = await fetch(CFG.API, {
+      method:   'POST',
+      redirect: 'follow',
+      headers:  { 'Content-Type': 'text/plain;charset=utf-8' },
+      body:     JSON.stringify({ action, args, token: STATE.token }),
+      signal:   ctrl.signal
     });
-    raw = await res.text();
+    raw = (await res.text()).trim();
   } catch (e) {
     clearTimeout(timer);
     throw new Error(
       e.name === 'AbortError'
-        ? 'Превышено время ожидания сервера'
-        : 'Нет связи с сервером'
+        ? 'Превышено время ожидания сервера (' + (CFG.REQ_TIMEOUT / 1000) + ' с)'
+        : 'Нет связи с сервером: ' + (e.message || e) +
+          '\nПроверьте, что веб-приложение опубликовано с доступом «Все».'
     );
   }
   clearTimeout(timer);
 
-  let d;
-  try   { d = raw ? JSON.parse(raw) : {}; }
-  catch { throw new Error('Сервер вернул не JSON: ' + raw.slice(0, 180)); }
+  /* ── Пришёл HTML вместо JSON: даём точный диагноз ── */
+  if (raw.startsWith('<')) {
+    if (res.status === 405) {
+      throw new Error(
+        'HTTP 405 Not Allowed.\n' +
+        'POST-запрос ушёл на статический хостинг, а не на Apps Script.\n' +
+        'Исправьте CFG.API → https://script.google.com/macros/s/.../exec'
+      );
+    }
+    if (/accounts\.google\.com|Требуется вход|Sign in|Войдите/i.test(raw)) {
+      throw new Error(
+        'Apps Script требует авторизацию Google.\n' +
+        'Развернуть → Управление развёртываниями →\n' +
+        '«Выполнять как» = Я, «Доступ» = Все.'
+      );
+    }
+    if (/Script function not found|doPost/i.test(raw)) {
+      throw new Error('В Apps Script нет функции doPost(e). Добавьте её и создайте новое развёртывание.');
+    }
+    throw new Error(
+      'Сервер вернул HTML (код ' + res.status + '), а не JSON:\n' +
+      raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200)
+    );
+  }
 
-  if (res.status === 401 || res.status === 403) {
+  let d;
+  try { d = raw ? JSON.parse(raw) : {}; }
+  catch { throw new Error('Ответ не является JSON:\n' + raw.slice(0, 250)); }
+
+  if (res.status === 401 || res.status === 403 || d.code === 401) {
     forceLogout();
     throw new Error(d.error || 'Сессия истекла, войдите заново');
   }
-  if (!res.ok)            throw new Error(d.error || ('Ошибка сервера ' + res.status));
-  if (d && d.ok === false) throw new Error(d.error || 'Ошибка сервера');
-
+  if (!res.ok)              throw new Error(d.error || ('Ошибка сервера ' + res.status));
+  if (d && d.ok === false)  throw new Error(d.error || 'Ошибка сервера');
   return d.result !== undefined ? d.result : d;
+}
+
+/* ══════════════════════════════════════════════
+   ДЕМО-РЕЖИМ (работает без сервера)
+══════════════════════════════════════════════ */
+let DEMO_SEQ = 3;
+const DEMO_ROWS = [
+  { id:1, no:1001, ts:Date.now() - 36e5*5,  organization:'ООО «Вектор»',   inn:'7701234567',
+    contact:'Иванов И.И.', phone:'+7 900 111-22-33', email:'v@vektor.ru',
+    priority:'Высокий', status:'Новая заявка', executor:'СП Москва',
+    employee:'Петров П.', comment:'Не пробивает чеки, ошибка ФН',
+    kktCount:1, rnm:'0001234567890123', zn:'00106900123456', fn:'9999078900001234',
+    model:'АТОЛ 91Ф', needTrip:'Да', tripAddress:'г. Москва, Тверская 1',
+    esp:'Да', kep:'Нет', wifi:'Да', sla:{ expired:false } },
+  { id:2, no:1002, ts:Date.now() - 36e5*70, organization:'АО «Стройпуть»', inn:'7809876543',
+    contact:'Петрова А.С.', phone:'+7 900 444-55-66', email:'a@stroy.ru',
+    priority:'Критический', status:'В работе', executor:'СП СПб',
+    employee:'Сидоров С.', comment:'Требуется перерегистрация ККТ',
+    kktCount:2, rnm:'0009876543210987', zn:'00106900654321', fn:'9999078900007654',
+    model:'Эвотор 7.2', needTrip:'Нет', tripAddress:'',
+    esp:'Да', kep:'Да', wifi:'Нет', sla:{ expired:true } },
+  { id:3, no:1003, ts:Date.now() - 36e5*12, organization:'ИП Смирнов',     inn:'503012345678',
+    contact:'Смирнов В.', phone:'+7 900 777-88-99', email:'',
+    priority:'Средний', status:'Выполнена', executor:'СП Казань',
+    employee:'Кузнецова О.', comment:'Заменён ФН, отчёт отправлен',
+    kktCount:1, rnm:'0005555555555555', zn:'00106900999999', fn:'9999078900009999',
+    model:'Штрих-М', needTrip:'Да', tripAddress:'МО, Химки, Ленина 5',
+    esp:'Нет', kep:'Нет', wifi:'Да', sla:{ expired:false } }
+];
+function demoDash(q){
+  const rows = !q ? DEMO_ROWS : DEMO_ROWS.filter(r =>
+    [r.organization, r.executor, r.comment, r.no, r.contact]
+      .join(' ').toLowerCase().includes(String(q).toLowerCase()));
+  return {
+    name:'Демо-админ', role:'ADMIN', organization:'LIFE PAY',
+    rows,
+    stats:{
+      total:   rows.length,
+      newCount:rows.filter(r => /Нов/.test(r.status)).length,
+      inWork:  rows.filter(r => r.status === 'В работе').length,
+      done:    rows.filter(r => /Выполнен/.test(r.status)).length,
+      overdue: rows.filter(r => r.sla && r.sla.expired).length
+    },
+    chart:[12, 19, 9, 24, 17, 28, 31]
+  };
+}
+async function demoCall(action, args){
+  await new Promise(r => setTimeout(r, 180));
+  const a = args || [];
+  switch (action) {
+    case 'login':
+      return { token:'demo-token', user:{ name:a[0] || 'demo', role:'ADMIN', organization:'LIFE PAY' } };
+    case 'logout':           return { ok:true };
+    case 'getDashboardData': return demoDash((a[1] || {}).q);
+    case 'createRequest': {
+      const p = a[1] || {};
+      DEMO_ROWS.unshift({
+        id:++DEMO_SEQ, no:1000 + DEMO_SEQ, ts:Date.now(),
+        organization:p.org_name, inn:p.inn, contact:p.contact_person,
+        phone:p.phone, email:p.email, priority:p.priority || 'Средний',
+        status:'Новая заявка', executor:p.executor, employee:p.lpEmployee,
+        comment:p.comment, kktCount:(p.kassas || []).length,
+        rnm:(p.kassas?.[0] || {}).rnm, zn:(p.kassas?.[0] || {}).znKkt,
+        fn:(p.kassas?.[0] || {}).fn, model:(p.kassas?.[0] || {}).modelKkt,
+        needTrip:p.need_trip, tripAddress:p.trip_address,
+        esp:p.registered_esp, kep:p.has_kep, wifi:p.has_wifi,
+        sla:{ expired:false }
+      });
+      return { ok:true };
+    }
+    case 'updateRequest': {
+      const row = DEMO_ROWS.find(r => String(r.id) === String(a[1]) || String(r.no) === String(a[1]));
+      if (row) Object.assign(row, a[2] || {});
+      return { ok:true };
+    }
+    case 'getOrganizations':
+      return [
+        { name:'ООО «Вектор»',   inn:'7701234567', contact:'Иванов И.И.',  phone:'+7 900 111-22-33', active:true },
+        { name:'АО «Стройпуть»', inn:'7809876543', contact:'Петрова А.С.', phone:'+7 900 444-55-66', active:true }
+      ];
+    case 'getUsers':
+      return [
+        { login:'admin', name:'Демо-админ', role:'ADMIN', organization:'LIFE PAY', active:true },
+        { login:'sp_msk', name:'СП Москва', role:'SP',    organization:'СП Москва', active:true }
+      ];
+    case 'getLog':
+      return [
+        { ts:Date.now() - 6e5, login:'admin', action:'login',         details:'демо' },
+        { ts:Date.now() - 3e5, login:'admin', action:'updateRequest', details:'#1002 → В работе' }
+      ];
+    case 'getSettings':
+      return { slaHours:60, notifyEmail:'support@example.ru', version:'demo-1.0' };
+    default:
+      throw new Error('Демо-режим: действие «' + action + '» не реализовано');
+  }
 }
 
 /* ══════════════════════════════════════════════
@@ -578,20 +649,18 @@ $('loginForm').addEventListener('submit', async e => {
   const login = $('loginName').value.trim();
   const pass  = $('loginPass').value;
   $('loginErr').textContent = '';
-
   if (!login || !pass) {
     $('loginErr').textContent = 'Заполните логин и пароль';
     return;
   }
-
   $('loginBtn').disabled    = true;
-  $('loginBtn').textContent = 'Входим…';
-
+  $('loginBtn').textContent = 'Входим...';
   try {
-    const r       = await call('login', login, pass);
-    STATE.token   = r.token;
-    STATE.me      = r.user || { name: login };
+    const r     = await call('login', login, pass);
+    STATE.token = r.token || 'ok';
+    STATE.me    = r.user || { name: login };
     sessionStorage.setItem('lifeToken', STATE.token);
+    $('loginPass').value = '';
     showApp();
     await go('dashboard');
   } catch (err) {
@@ -602,7 +671,7 @@ $('loginForm').addEventListener('submit', async e => {
   }
 });
 
-async function restore() {
+async function restore(){
   if (!STATE.token) return;
   try {
     const r = await call('getDashboardData', STATE.token, {});
@@ -620,33 +689,31 @@ async function restore() {
   }
 }
 
-function forceLogout() {
+function forceLogout(){
   sessionStorage.removeItem('lifeToken');
-  STATE.token    = '';
-  STATE.me       = null;
-  STATE.rows     = [];
+  STATE.token = '';
+  STATE.me = null;
+  STATE.rows = [];
   STATE.selected = null;
   $('app').classList.add('hidden');
   $('login').classList.remove('hidden');
   $('themeBtn').classList.remove('hidden');
 }
 
-async function logout() {
+async function logout(){
   try { if (STATE.token) await call('logout', STATE.token); } catch { /* ignore */ }
   forceLogout();
 }
 
-function showApp() {
+function showApp(){
   $('login').classList.add('hidden');
   $('app').classList.remove('hidden');
   $('themeBtn').classList.add('hidden');
-
   const me   = STATE.me || {};
   const name = me.name || me.login || 'Пользователь';
   $('who').textContent     = name;
   $('avatar').textContent  = (name[0] || '?').toUpperCase();
-  $('whoRole').textContent = (me.role || '') +
-    (me.organization ? ' · ' + me.organization : '');
+  $('whoRole').textContent = (me.role || '') + (me.organization ? ' · ' + me.organization : '');
   buildNav();
 }
 
@@ -654,30 +721,29 @@ function showApp() {
    НАВИГАЦИЯ
 ══════════════════════════════════════════════ */
 const PAGES = {
-  dashboard: { title: 'CRM Система',     sub: 'Управление заявками, организациями и исполнителями' },
-  requests:  { title: 'Заявки',           sub: 'Все входящие заявки технической поддержки' },
-  orgs:      { title: 'Организации',      sub: 'Справочник обслуживаемых организаций' },
-  users:     { title: 'Пользователи',     sub: 'Учётные записи и роли' },
-  settings:  { title: 'Настройки',        sub: 'Параметры системы' },
-  log:       { title: 'Журнал',           sub: 'История действий пользователей' }
+  dashboard:{ title:'CRM Система', sub:'Управление заявками, организациями и исполнителями' },
+  requests: { title:'Заявки',      sub:'Все входящие заявки технической поддержки' },
+  orgs:     { title:'Организации', sub:'Справочник обслуживаемых организаций' },
+  users:    { title:'Пользователи',sub:'Учётные записи и роли' },
+  settings: { title:'Настройки',   sub:'Параметры системы' },
+  log:      { title:'Журнал',      sub:'История действий пользователей' }
 };
 
-function buildNav() {
+function buildNav(){
   const items = [
-    ['dashboard', '⌂', 'Дашборд'],
-    ['requests',  '▣', 'Заявки']
+    ['dashboard','⌂','Дашборд'],
+    ['requests', '▣','Заявки']
   ];
   if (STATE.me && STATE.me.role === 'ADMIN') {
     items.push(
-      ['orgs',     '▥', 'Организации'],
-      ['users',    '♙', 'Пользователи'],
-      ['settings', '⚙', 'Настройки'],
-      ['log',      '≡', 'Журнал']
+      ['orgs',    '▥','Организации'],
+      ['users',   '♙','Пользователи'],
+      ['settings','⚙','Настройки'],
+      ['log',     '≡','Журнал']
     );
   }
   $('nav').innerHTML = items.map(([page, icon, label]) =>
-    `<button type="button" data-page="${page}"
-      class="${STATE.page === page ? 'active' : ''}">
+    `<button type="button" data-page="${page}" class="${STATE.page === page ? 'active' : ''}">
       <span>${icon}</span>${label}
     </button>`
   ).join('');
@@ -688,28 +754,24 @@ $('nav').addEventListener('click', e => {
   if (btn) go(btn.dataset.page);
 });
 
-function skeleton() {
+function skeleton(){
   return `<div class="card glass">
-    ${Array.from({ length: 6 }, (_, i) =>
-      `<div class="skel" style="width:${90 - i * 8}%"></div>`
-    ).join('')}
+    ${Array.from({ length:6 }, (_, i) => `<div class="skel" style="width:${90 - i * 8}%"></div>`).join('')}
   </div>`;
 }
 
 /* ══════════════════════════════════════════════
    РОУТЕР
 ══════════════════════════════════════════════ */
-async function go(page) {
+async function go(page){
   if (STATE.loading) return;
   STATE.page = page;
   buildNav();
-
   const meta = PAGES[page] || PAGES.dashboard;
   $('pageTitle').textContent = meta.title;
   $('pageSub').textContent   = meta.sub;
   $('content').innerHTML     = skeleton();
   STATE.loading = true;
-
   try {
     switch (page) {
       case 'dashboard':
@@ -717,51 +779,43 @@ async function go(page) {
         renderDash();
         break;
       case 'requests':
-        applyDashData(await call('getDashboardData', STATE.token,
-          { q: $('search').value.trim() }));
+        applyDashData(await call('getDashboardData', STATE.token, { q: $('search').value.trim() }));
         renderRequests();
         break;
       case 'orgs':
-        renderSimple('Организации',
-          await call('getOrganizations', STATE.token),
+        renderSimple('Организации', await call('getOrganizations', STATE.token),
           ['name','inn','contact','phone','active']);
         break;
       case 'users':
-        renderSimple('Пользователи',
-          await call('getUsers', STATE.token),
+        renderSimple('Пользователи', await call('getUsers', STATE.token),
           ['login','name','role','organization','active']);
         break;
       case 'log':
-        renderSimple('Журнал',
-          await call('getLog', STATE.token),
+        renderSimple('Журнал', await call('getLog', STATE.token),
           ['ts','login','action','details']);
         break;
       default:
-        renderSimple('Настройки',
-          await call('getSettings', STATE.token));
+        renderSimple('Настройки', await call('getSettings', STATE.token));
     }
   } catch (e) {
-    $('content').innerHTML =
-      `<div class="card glass empty">⚠️ ${esc(e.message)}</div>`;
+    $('content').innerHTML = `<div class="card glass empty">⚠️ ${esc(e.message)}</div>`;
     toast(e.message);
   } finally {
     STATE.loading = false;
   }
 }
 
-function applyDashData(d) {
+function applyDashData(d){
   d = d || {};
   STATE.rows  = Array.isArray(d.rows) ? d.rows : [];
-  STATE.stats = d.stats || {
-    total: STATE.rows.length, newCount: 0, inWork: 0, done: 0, overdue: 0
-  };
+  STATE.stats = d.stats || { total:STATE.rows.length, newCount:0, inWork:0, done:0, overdue:0 };
   STATE.chart = Array.isArray(d.chart) && d.chart.length ? d.chart : null;
 }
 
 /* ══════════════════════════════════════════════
    ДАШБОРД
 ══════════════════════════════════════════════ */
-function renderDash() {
+function renderDash(){
   const s     = STATE.stats || {};
   const total = Number(s.total)    || 0;
   const nw    = Number(s.newCount) || 0;
@@ -788,20 +842,14 @@ function renderDash() {
         </div>
         <div class="chart">
           ${series.map(v =>
-            `<div class="bar"
-               style="height:${Math.max(6, (Number(v) || 0) / max * 100)}%"
-               title="${esc(v)}"></div>`
+            `<div class="bar" style="height:${Math.max(6, (Number(v) || 0) / max * 100)}%" title="${esc(v)}"></div>`
           ).join('')}
         </div>
       </div>
       <div class="card glass">
         <div class="cardhead"><b>Статусы заявок</b></div>
         <div class="donutwrap">
-          <div class="donut"
-            style="background:conic-gradient(
-              #13c8ff 0 ${p1}%,
-              #187bff ${p1}% ${p2}%,
-              #7047ff ${p2}% 100%)">
+          <div class="donut" style="background:conic-gradient(#13c8ff 0 ${p1}%,#187bff ${p1}% ${p2}%,#7047ff ${p2}% 100%)">
             <b>${total}</b>
           </div>
           <div class="legend">
@@ -815,15 +863,14 @@ function renderDash() {
     <div class="card glass requests">
       <div class="cardhead">
         <b>Последние заявки</b>
-        <button class="action" data-nav="requests">Все заявки →</button>
+        <button class="action" type="button" data-nav="requests">Все заявки →</button>
       </div>
       <div class="tablewrap">${requestTable(STATE.rows.slice(0, 8))}</div>
     </div>`;
-
   renderDrawer(STATE.rows[0]);
 }
 
-function kpi(label, value, bad) {
+function kpi(label, value, bad){
   return `<div class="card glass kpi">
     <span class="muted">${esc(label)}</span>
     <b>${esc(value)}</b>
@@ -834,68 +881,52 @@ function kpi(label, value, bad) {
 /* ══════════════════════════════════════════════
    ТАБЛИЦА ЗАЯВОК
 ══════════════════════════════════════════════ */
-function renderRequests() {
+function renderRequests(){
   $('content').innerHTML = `
     <div class="card glass requests" style="margin-top:0">
       <div class="cardhead">
         <b>Все заявки · ${STATE.rows.length}</b>
-        <button class="primary" style="padding:10px 16px"
-          data-act="new">+ Новая заявка</button>
+        <button class="primary" style="padding:10px 16px" type="button" data-act="new">+ Новая заявка</button>
       </div>
       <div class="tablewrap">${requestTable(STATE.rows)}</div>
     </div>`;
   renderDrawer(STATE.rows[0]);
 }
 
-function rowKey(x, i) {
+function rowKey(x, i){
   return String(x.id != null ? x.id : (x.no != null ? x.no : 'i' + i));
 }
 
-function requestTable(rows) {
+function requestTable(rows){
   if (!rows.length) return '<div class="empty">Заявок пока нет.</div>';
   return `<table>
     <thead><tr>
-      <th>No</th>
-      <th>Дата и время</th>
-      <th>Организация</th>
-      <th>Приоритет</th>
-      <th>Статус</th>
-      <th>Исполнитель</th>
-      <th>Комментарий</th>
-      <th>Действия</th>
+      <th>No</th><th>Дата и время</th><th>Организация</th><th>Приоритет</th>
+      <th>Статус</th><th>Исполнитель</th><th>Комментарий</th><th>Действия</th>
     </tr></thead>
     <tbody>
       ${rows.map((x, i) => {
         const k    = rowKey(x, i);
-        const late = x.sla && x.sla.expired
-          ? '<span class="overdue">🔴 ПРОСРОЧКА</span>'
-          : '';
-        return `<tr data-key="${esc(k)}"
-            class="${STATE.selected === k ? 'sel' : ''}">
+        const late = x.sla && x.sla.expired ? '<span class="overdue">🔴 ПРОСРОЧКА</span>' : '';
+        return `<tr data-key="${esc(k)}" class="${STATE.selected === k ? 'sel' : ''}">
           <td><b>${esc(x.no ?? '—')}</b></td>
           <td>${fmt(x.ts)}</td>
           <td>${esc(x.organization || '—')}</td>
           <td>${badge(x.priority)}</td>
           <td>${badge(x.status)}${late}</td>
           <td>${esc(x.executor || '—')}</td>
-          <td class="ellipsis" title="${esc(x.comment || '')}">
-            ${esc(x.comment || '')}
-          </td>
-          <td>
-            <button class="action" data-open="${esc(k)}"
-              type="button">Управлять</button>
-          </td>
+          <td class="ellipsis" title="${esc(x.comment || '')}">${esc(x.comment || '')}</td>
+          <td><button class="action" type="button" data-open="${esc(k)}">Управлять</button></td>
         </tr>`;
       }).join('')}
     </tbody>
   </table>`;
 }
 
-/* делегирование кликов */
+/* делегирование кликов по контенту */
 $('content').addEventListener('click', e => {
   const nav = e.target.closest('[data-nav]');
   if (nav) { go(nav.dataset.nav); return; }
-
   if (e.target.closest('[data-act="new"]')) { openRequestModal(); return; }
 
   const openBtn = e.target.closest('[data-open]');
@@ -905,7 +936,6 @@ $('content').addEventListener('click', e => {
 
   const idx = STATE.rows.findIndex((x, i) => rowKey(x, i) === key);
   if (idx < 0) return;
-
   STATE.selected = key;
   document.querySelectorAll('tr[data-key]').forEach(el =>
     el.classList.toggle('sel', el.dataset.key === key));
@@ -915,54 +945,47 @@ $('content').addEventListener('click', e => {
 /* ══════════════════════════════════════════════
    DRAWER
 ══════════════════════════════════════════════ */
-function renderDrawer(x) {
+function renderDrawer(x){
   if (!x) {
-    $('drawer').innerHTML =
-      '<h3>Заявка</h3><div class="muted">Выберите заявку из списка.</div>';
+    $('drawer').innerHTML = '<h3>Заявка</h3><div class="muted">Выберите заявку из списка.</div>';
     return;
   }
   const isAdmin = STATE.me && STATE.me.role === 'ADMIN';
   $('drawer').dataset.key = STATE.selected || '';
-  $('drawer').innerHTML   = `
+  $('drawer').innerHTML = `
     <h3>Заявка No${esc(x.no ?? '—')}</h3>
     <div class="muted">${esc(x.organization || '')} · ${fmt(x.ts)}</div>
     <div class="detail">
       <div class="detail-title">Основная информация</div>
       ${line('Приоритет',   badge(x.priority))}
       ${line('Статус',      badge(x.status))}
-      ${line('Кто передал', esc(x.employee   || '—'))}
-      ${line('Исполнитель', esc(x.executor   || '—'))}
-      ${line('Комментарий', esc(x.comment    || '—'))}
-
+      ${line('Кто передал', esc(x.employee || '—'))}
+      ${line('Исполнитель', esc(x.executor || '—'))}
+      ${line('Комментарий', esc(x.comment  || '—'))}
       <div class="detail-title">Организация</div>
       ${line('Наименование', esc(x.organization || '—'))}
-      ${line('ИНН',          esc(x.inn          || '—'))}
-      ${line('Контакт',      esc(x.contact      || '—'))}
-      ${line('Телефон',      esc(x.phone        || '—'))}
-      ${line('E-mail',       esc(x.email        || '—'))}
-
+      ${line('ИНН',          esc(x.inn     || '—'))}
+      ${line('Контакт',      esc(x.contact || '—'))}
+      ${line('Телефон',      esc(x.phone   || '—'))}
+      ${line('E-mail',       esc(x.email   || '—'))}
       <div class="detail-title">ККТ</div>
       ${line('Количество', esc(x.kktCount || '—'))}
-      ${line('РНМ',        esc(x.rnm     || '—'))}
-      ${line('ЗН ККТ',     esc(x.zn      || '—'))}
-      ${line('ФН',         esc(x.fn      || '—'))}
-      ${line('Модель',     esc(x.model   || '—'))}
-
+      ${line('РНМ',        esc(x.rnm      || '—'))}
+      ${line('ЗН ККТ',     esc(x.zn       || '—'))}
+      ${line('ФН',         esc(x.fn       || '—'))}
+      ${line('Модель',     esc(x.model    || '—'))}
       <div class="detail-title">Сопровождение</div>
       ${line('Нужен выезд',  yes(x.needTrip))}
       ${line('Адрес выезда', esc(x.tripAddress || '—'))}
       ${line('ЕСП',          yes(x.esp))}
       ${line('КЭП',          yes(x.kep))}
       ${line('Wi-Fi',        yes(x.wifi))}
-
       ${x.sla && x.sla.expired
         ? '<div class="overdue" style="margin-top:12px">🔴 ПРОСРОЧКА — срок 60 часов истёк</div>'
         : ''}
     </div>
     <div class="drawer-actions">
-      ${isAdmin
-        ? '<button class="primary" type="button" data-d="edit">Изменить статус</button>'
-        : ''}
+      ${isAdmin ? '<button class="primary" type="button" data-d="edit">Изменить статус</button>' : ''}
       <button type="button" data-d="requests">Все заявки</button>
     </div>`;
 }
@@ -975,49 +998,41 @@ $('drawer').addEventListener('click', e => {
 });
 
 /* ══════════════════════════════════════════════
-   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+   ВСПОМОГАТЕЛЬНЫЕ
 ══════════════════════════════════════════════ */
-function line(a, b) {
+function line(a, b){
   return `<div class="row"><span>${a}</span><b>${b}</b></div>`;
 }
-
-function yes(v) {
+function yes(v){
   return (v === true || v === 'Да' || v === 'true' || v === 1) ? 'Да' : 'Нет';
 }
-
-function fmt(v) {
+function fmt(v){
   if (!v) return '—';
   const d = new Date(v);
-  if (isNaN(d)) return esc(v);
+  if (isNaN(d.getTime())) return esc(v);
   return d.toLocaleString('ru-RU', {
-    day: '2-digit', month: '2-digit', year: 'numeric',
-    hour: '2-digit', minute: '2-digit'
+    day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit'
   });
 }
-
-function badge(v) {
+function badge(v){
   const map = {
-    'Выполнено':    'done',  'Выполнена':   'done',
-    'В работе':     'work',  'Ожидание':    'wait',
-    'Новая заявка': 'new',   'Новая':       'new',
-    'Не выполнена': 'fail',  'Отменена':    'fail',
-    'Критический':  'critical',
-    'Высокий':      'high',
-    'Средний':      'medium',
-    'Низкий':       'low'
+    'Выполнено':'done','Выполнена':'done',
+    'В работе':'work','Ожидание':'wait',
+    'Новая заявка':'new','Новая':'new',
+    'Не выполнена':'fail','Отменена':'fail',
+    'Критический':'critical','Высокий':'high','Средний':'medium','Низкий':'low'
   };
   return `<span class="badge ${map[v] || 'low'}">${esc(v || '—')}</span>`;
 }
 
 /* ══════════════════════════════════════════════
-   ПРОСТЫЕ ТАБЛИЦЫ (орг, пользователи, журнал, настройки)
+   ПРОСТЫЕ ТАБЛИЦЫ
 ══════════════════════════════════════════════ */
-function renderSimple(title, data, cols) {
-  let rows = Array.isArray(data)
+function renderSimple(title, data, cols){
+  const rows = Array.isArray(data)
     ? data
     : Object.entries(data || {}).map(([k, v]) => ({
-        key:   k,
-        value: typeof v === 'object' ? JSON.stringify(v) : v
+        key:k, value: typeof v === 'object' ? JSON.stringify(v) : v
       }));
 
   if (!rows.length) {
@@ -1029,28 +1044,22 @@ function renderSimple(title, data, cols) {
     return;
   }
 
-  /* ── ИСПРАВЛЕННАЯ СТРОКА: обычная стрелочная функция вместо =>` ── */
-  const head = (cols && cols.length)
-    ? cols.filter(c => c in rows[0])
-    : Object.keys(rows[0]);
+  let head = (cols && cols.length) ? cols.filter(c => c in rows[0]) : Object.keys(rows[0]);
+  if (!head.length) head = Object.keys(rows[0]);   // защита от пустой шапки
 
   $('content').innerHTML = `
     <div class="card glass" style="margin-top:0">
       <div class="cardhead"><b>${esc(title)} · ${rows.length}</b></div>
       <div class="tablewrap">
         <table>
-          <thead>
-            <tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr>
-          </thead>
+          <thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
           <tbody>
             ${rows.map(r => `<tr>${head.map(h => {
               let v = r[h];
               if (v === true)  v = 'Да';
               if (v === false) v = 'Нет';
               if (h === 'ts')  v = fmt(v);
-              return `<td class="ellipsis" title="${esc(v ?? '')}">
-                ${esc(v ?? '')}
-              </td>`;
+              return `<td class="ellipsis" title="${esc(v ?? '')}">${esc(v ?? '')}</td>`;
             }).join('')}</tr>`).join('')}
           </tbody>
         </table>
@@ -1062,8 +1071,7 @@ function renderSimple(title, data, cols) {
    МОДАЛКА: НОВАЯ ЗАЯВКА
 ══════════════════════════════════════════════ */
 let kktSeq = 0;
-
-function openRequestModal() {
+function openRequestModal(){
   kktSeq = 0;
   $('modal').classList.remove('hidden');
   $('modal').innerHTML = `
@@ -1074,85 +1082,39 @@ function openRequestModal() {
       </div>
       <form id="reqForm">
         <div class="formgrid" style="margin-top:14px">
-          <div class="field">
-            <label>Организация *</label>
-            <input name="org_name" required>
-          </div>
-          <div class="field">
-            <label>ИНН</label>
-            <input name="inn" inputmode="numeric" maxlength="12">
-          </div>
-          <div class="field">
-            <label>Контактное лицо</label>
-            <input name="contact_person">
-          </div>
-          <div class="field">
-            <label>Телефон *</label>
-            <input name="phone" required placeholder="+7 (___) ___-__-__">
-          </div>
-          <div class="field">
-            <label>E-mail</label>
-            <input name="email" type="email">
-          </div>
+          <div class="field"><label>Организация *</label><input name="org_name" required></div>
+          <div class="field"><label>ИНН</label><input name="inn" inputmode="numeric" maxlength="12"></div>
+          <div class="field"><label>Контактное лицо</label><input name="contact_person"></div>
+          <div class="field"><label>Телефон *</label><input name="phone" required placeholder="+7 (___) ___-__-__"></div>
+          <div class="field"><label>E-mail</label><input name="email" type="email"></div>
           <div class="field">
             <label>Кто передал</label>
-            <input name="lpEmployee"
-              value="${esc((STATE.me && STATE.me.name) || '')}">
+            <input name="lpEmployee" value="${esc((STATE.me && STATE.me.name) || '')}">
           </div>
           <div class="field">
             <label>Приоритет</label>
             <select name="priority">
-              <option>Низкий</option>
-              <option selected>Средний</option>
-              <option>Высокий</option>
-              <option>Критический</option>
+              <option>Низкий</option><option selected>Средний</option>
+              <option>Высокий</option><option>Критический</option>
             </select>
           </div>
           <div class="field">
             <label>Исполнитель (СП)</label>
-            <input name="executor"
-              value="${esc((STATE.me && STATE.me.organization) || '')}">
+            <input name="executor" value="${esc((STATE.me && STATE.me.organization) || '')}">
           </div>
-          <div class="field full">
-            <label>Комментарий</label>
-            <textarea name="comment"></textarea>
-          </div>
+          <div class="field full"><label>Комментарий</label><textarea name="comment"></textarea></div>
           <div class="full">
             <div class="cardhead" style="margin-bottom:8px">
               <b>ККТ</b>
-              <button class="action" type="button"
-                data-m="addkkt">+ Добавить кассу</button>
+              <button class="action" type="button" data-m="addkkt">+ Добавить кассу</button>
             </div>
             <div id="kktList"></div>
           </div>
-          <div class="field">
-            <label>Нужен выезд</label>
-            <select name="need_trip">
-              <option>Нет</option><option>Да</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Адрес выезда</label>
-            <input name="trip_address">
-          </div>
-          <div class="field">
-            <label>Зарегистрирован в ЕСП</label>
-            <select name="registered_esp">
-              <option>Нет</option><option>Да</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Есть КЭП</label>
-            <select name="has_kep">
-              <option>Нет</option><option>Да</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Есть Wi-Fi</label>
-            <select name="has_wifi">
-              <option>Нет</option><option>Да</option>
-            </select>
-          </div>
+          <div class="field"><label>Нужен выезд</label><select name="need_trip"><option>Нет</option><option>Да</option></select></div>
+          <div class="field"><label>Адрес выезда</label><input name="trip_address"></div>
+          <div class="field"><label>Зарегистрирован в ЕСП</label><select name="registered_esp"><option>Нет</option><option>Да</option></select></div>
+          <div class="field"><label>Есть КЭП</label><select name="has_kep"><option>Нет</option><option>Да</option></select></div>
+          <div class="field"><label>Есть Wi-Fi</label><select name="has_wifi"><option>Нет</option><option>Да</option></select></div>
         </div>
         <div class="error" id="reqErr"></div>
         <div class="modal-actions">
@@ -1161,21 +1123,18 @@ function openRequestModal() {
         </div>
       </form>
     </div>`;
-
   addKkt();
   $('reqForm').addEventListener('submit', submitRequest);
 }
 
-function addKkt() {
+function addKkt(){
   kktSeq++;
-  const wrap       = document.createElement('div');
-  wrap.className   = 'kkt-item';
-  wrap.innerHTML   = `
+  const wrap = document.createElement('div');
+  wrap.className = 'kkt-item';
+  wrap.innerHTML = `
     <div class="kkt-head">
       <span>Касса ${kktSeq}</span>
-      ${kktSeq > 1
-        ? '<button class="linkbtn" type="button" data-m="delkkt">Удалить</button>'
-        : ''}
+      ${kktSeq > 1 ? '<button class="linkbtn" type="button" data-m="delkkt">Удалить</button>' : ''}
     </div>
     <div class="formgrid">
       <div class="field"><label>РНМ</label><input data-k="rnm"></div>
@@ -1192,54 +1151,47 @@ $('modal').addEventListener('click', e => {
   if (!b) return;
   if (b.dataset.m === 'close')  closeModal();
   if (b.dataset.m === 'addkkt') addKkt();
-  if (b.dataset.m === 'delkkt') {
-    b.closest('.kkt-item').remove();
-    renumberKkt();
-  }
+  if (b.dataset.m === 'delkkt') { b.closest('.kkt-item').remove(); renumberKkt(); }
 });
 
-function renumberKkt() {
+function renumberKkt(){
   [...document.querySelectorAll('#kktList .kkt-item')].forEach((el, i) => {
     el.querySelector('.kkt-head span').textContent = 'Касса ' + (i + 1);
   });
+  kktSeq = document.querySelectorAll('#kktList .kkt-item').length;
 }
 
-function closeModal() {
+function closeModal(){
   $('modal').classList.add('hidden');
   $('modal').innerHTML = '';
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !$('modal').classList.contains('hidden'))
-    closeModal();
+  if (e.key === 'Escape' && !$('modal').classList.contains('hidden')) closeModal();
 });
 
-async function submitRequest(e) {
+async function submitRequest(e){
   e.preventDefault();
   const payload = Object.fromEntries(new FormData(e.target).entries());
   payload.kassas = [...document.querySelectorAll('#kktList .kkt-item')]
     .map(el => {
       const o = {};
-      el.querySelectorAll('[data-k]').forEach(inp => {
-        o[inp.dataset.k] = inp.value.trim();
-      });
+      el.querySelectorAll('[data-k]').forEach(inp => { o[inp.dataset.k] = inp.value.trim(); });
       return o;
     })
     .filter(o => Object.values(o).some(v => v));
-
   if (!payload.kassas.length) payload.kassas = [{}];
 
   $('reqErr').textContent    = '';
   $('reqSubmit').disabled    = true;
-  $('reqSubmit').textContent = 'Сохраняем…';
-
+  $('reqSubmit').textContent = 'Сохраняем...';
   try {
     await call('createRequest', STATE.token, payload);
     closeModal();
     toast('Заявка создана', 'ok');
     await go('requests');
   } catch (err) {
-    $('reqErr').textContent = err.message;
+    if ($('reqErr')) $('reqErr').textContent = err.message;
   } finally {
     if ($('reqSubmit')) {
       $('reqSubmit').disabled    = false;
@@ -1251,15 +1203,12 @@ async function submitRequest(e) {
 /* ══════════════════════════════════════════════
    МОДАЛКА: СМЕНА СТАТУСА
 ══════════════════════════════════════════════ */
-function openStatusModal() {
+function openStatusModal(){
   const key  = $('drawer').dataset.key;
   const item = STATE.rows.find((x, i) => rowKey(x, i) === key);
   if (!item) { toast('Заявка не выбрана'); return; }
 
-  const statuses = [
-    'Новая заявка', 'В работе', 'Ожидание',
-    'Не выполнена', 'Выполнена', 'Отменена'
-  ];
+  const statuses = ['Новая заявка','В работе','Ожидание','Не выполнена','Выполнена','Отменена'];
 
   $('modal').classList.remove('hidden');
   $('modal').innerHTML = `
@@ -1272,19 +1221,11 @@ function openStatusModal() {
         <div class="field">
           <label>Статус</label>
           <select name="status">
-            ${statuses.map(s =>
-              `<option ${s === item.status ? 'selected' : ''}>${s}</option>`
-            ).join('')}
+            ${statuses.map(s => `<option ${s === item.status ? 'selected' : ''}>${s}</option>`).join('')}
           </select>
         </div>
-        <div class="field">
-          <label>Исполнитель</label>
-          <input name="executor" value="${esc(item.executor || '')}">
-        </div>
-        <div class="field">
-          <label>Комментарий</label>
-          <textarea name="comment">${esc(item.comment || '')}</textarea>
-        </div>
+        <div class="field"><label>Исполнитель</label><input name="executor" value="${esc(item.executor || '')}"></div>
+        <div class="field"><label>Комментарий</label><textarea name="comment">${esc(item.comment || '')}</textarea></div>
         <div class="error" id="stErr"></div>
         <div class="modal-actions">
           <button class="secondary" type="button" data-m="close">Отмена</button>
@@ -1298,14 +1239,13 @@ function openStatusModal() {
     const patch = Object.fromEntries(new FormData(ev.target).entries());
     $('stSubmit').disabled = true;
     try {
-      await call('updateRequest', STATE.token,
-        item.id != null ? item.id : item.no, patch);
+      await call('updateRequest', STATE.token, item.id != null ? item.id : item.no, patch);
       closeModal();
       toast('Сохранено', 'ok');
       await go(STATE.page);
     } catch (err) {
-      $('stErr').textContent = err.message;
-      $('stSubmit').disabled = false;
+      if ($('stErr'))    $('stErr').textContent = err.message;
+      if ($('stSubmit')) $('stSubmit').disabled = false;
     }
   });
 }
@@ -1318,8 +1258,7 @@ $('search').addEventListener('input', () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {
     if (STATE.page === 'requests') go('requests');
-    else if (STATE.page === 'dashboard' && $('search').value.trim())
-      go('requests');
+    else if (STATE.page === 'dashboard' && $('search').value.trim()) go('requests');
   }, 300);
 });
 
@@ -1334,13 +1273,51 @@ $('logoutBtn').addEventListener('click', logout);
 /* ══════════════════════════════════════════════
    СТАРТ
 ══════════════════════════════════════════════ */
+if (CFG.DEMO) {
+  const f = document.createElement('div');
+  f.className   = 'demo-flag';
+  f.textContent = 'ДЕМО-РЕЖИМ — сервер не используется';
+  document.body.appendChild(f);
+} else if (!apiConfigured()) {
+  $('loginErr').textContent =
+    'CFG.API не настроен.\nОткройте файл и впишите URL Apps Script (.../exec)\n' +
+    'или поставьте CFG.DEMO = true для проверки интерфейса.';
+}
 restore();
 </script>
 </body>
 </html>
 
 							<script>
-                            	
+                            	function doPost(e){
+  var req = {};
+  try { req = JSON.parse(e.postData.contents); } catch (err) {}
+  var a = req.args || [];
+  var out;
+  try {
+    switch (req.action) {
+      case 'login':            out = { ok:true, result: login(a[0], a[1]) }; break;
+      case 'logout':           out = { ok:true, result: { ok:true } }; break;
+      case 'getDashboardData': out = { ok:true, result: getDashboardData(a[0], a[1] || {}) }; break;
+      case 'createRequest':    out = { ok:true, result: createRequest(a[0], a[1]) }; break;
+      case 'updateRequest':    out = { ok:true, result: updateRequest(a[0], a[1], a[2]) }; break;
+      case 'getOrganizations': out = { ok:true, result: getOrganizations(a[0]) }; break;
+      case 'getUsers':         out = { ok:true, result: getUsers(a[0]) }; break;
+      case 'getLog':           out = { ok:true, result: getLog(a[0]) }; break;
+      case 'getSettings':      out = { ok:true, result: getSettings(a[0]) }; break;
+      default: out = { ok:false, error:'Неизвестное действие: ' + req.action };
+    }
+  } catch (err) {
+    out = { ok:false, error: String(err && err.message || err) };
+  }
+  return ContentService.createTextOutput(JSON.stringify(out))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function doGet(){
+  return ContentService.createTextOutput(JSON.stringify({ ok:true, ping:true }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
 							</script>
                         </body>
                         </html>
