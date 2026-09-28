@@ -1,4 +1,19 @@
-<!doctype html>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -6,96 +21,99 @@
 <title>LIFE PAY — CRM</title>
 <style>
 :root{
- --bg:#eceef1;--bg2:#f6f7f9;--panel:rgba(255,255,255,.86);--panel2:rgba(255,255,255,.6);
- --text:#0d1219;--muted:#6b7583;--line:rgba(13,18,25,.11);--line2:rgba(13,18,25,.055);
- --acc:#111a26;--acc-t:#f7f8fa;--gold:#a9853f;--gold-s:rgba(169,133,63,.14);
+ --bg:#eaecef;--bg2:#f7f8fa;--panel:rgba(255,255,255,.88);--panel2:rgba(255,255,255,.58);
+ --text:#0c1119;--muted:#6a7482;--soft:#8b95a3;
+ --line:rgba(12,17,25,.11);--line2:rgba(12,17,25,.055);
+ --acc:#111a26;--acc-t:#f8f9fb;--gold:#a9853f;--gold-s:rgba(169,133,63,.13);
  --ok:#2d7a5c;--warn:#a5742a;--bad:#9d2b36;
- --field:rgba(255,255,255,.9);--head:rgba(13,18,25,.035);
- --sh:0 1px 2px rgba(16,24,40,.04),0 14px 34px rgba(16,24,40,.07);
- --sh2:0 2px 6px rgba(16,24,40,.06),0 26px 60px rgba(16,24,40,.12);
+ --field:rgba(255,255,255,.92);--head:rgba(12,17,25,.035);
+ --sh:0 1px 2px rgba(16,24,40,.04),0 12px 30px rgba(16,24,40,.06);
+ --sh2:0 2px 6px rgba(16,24,40,.06),0 28px 62px rgba(16,24,40,.12);
  --r:14px;
 }
 html[data-theme=dark]{
- --bg:#090c11;--bg2:#0e131a;--panel:rgba(20,26,34,.84);--panel2:rgba(16,21,28,.6);
- --text:#e7ecf3;--muted:#8a96a6;--line:rgba(231,236,243,.13);--line2:rgba(231,236,243,.07);
- --acc:#e7ecf3;--acc-t:#0b0f14;--gold:#cbab64;--gold-s:rgba(203,171,100,.16);
+ --bg:#080b10;--bg2:#0e131a;--panel:rgba(20,26,35,.86);--panel2:rgba(15,20,27,.6);
+ --text:#e8edf4;--muted:#8a96a6;--soft:#6d7a8a;
+ --line:rgba(232,237,244,.13);--line2:rgba(232,237,244,.065);
+ --acc:#e8edf4;--acc-t:#0a0e13;--gold:#cbab64;--gold-s:rgba(203,171,100,.15);
  --ok:#4cb98b;--warn:#dcae57;--bad:#df6f79;
- --field:rgba(9,13,18,.55);--head:rgba(231,236,243,.045);
- --sh:0 1px 2px rgba(0,0,0,.4),0 18px 44px rgba(0,0,0,.45);
- --sh2:0 2px 8px rgba(0,0,0,.5),0 30px 70px rgba(0,0,0,.55);
+ --field:rgba(8,12,17,.55);--head:rgba(232,237,244,.045);
+ --sh:0 1px 2px rgba(0,0,0,.42),0 16px 40px rgba(0,0,0,.45);
+ --sh2:0 2px 8px rgba(0,0,0,.5),0 32px 72px rgba(0,0,0,.56);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;color:var(--text);background:var(--bg);min-height:100vh;overflow-x:hidden;
- font-family:'Inter','Segoe UI',system-ui,Arial,sans-serif;font-feature-settings:"tnum" 1,"cv05" 1;
- -webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+ font-family:'Inter','Segoe UI',system-ui,Arial,sans-serif;font-feature-settings:"tnum" 1;
+ -webkit-font-smoothing:antialiased;letter-spacing:-.011em}
 body:before{content:"";position:fixed;inset:0;z-index:-2;background:
- radial-gradient(1100px 620px at 12% -8%,var(--gold-s),transparent 62%),
- radial-gradient(900px 560px at 92% 4%,rgba(120,150,190,.12),transparent 60%),
- linear-gradient(180deg,var(--bg2),var(--bg));}
-body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
+ radial-gradient(1200px 660px at 10% -10%,var(--gold-s),transparent 60%),
+ radial-gradient(920px 580px at 94% 2%,rgba(118,148,190,.13),transparent 58%),
+ linear-gradient(180deg,var(--bg2),var(--bg))}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.32;
  background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);
- background-size:64px 64px;mask-image:radial-gradient(120% 90% at 50% 0%,#000 30%,transparent 78%)}
+ background-size:68px 68px;mask-image:radial-gradient(125% 92% at 50% 0%,#000 28%,transparent 76%)}
 button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 button{cursor:pointer;background:none;border:0}
 .hidden{display:none!important}
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+::-webkit-scrollbar-track{background:transparent}
 .num{font-variant-numeric:tabular-nums}
 
-/* анимации — сдержанные */
 @keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes popq{from{opacity:0;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}
-@keyframes slideL{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-@keyframes grow{from{height:0!important;opacity:0}}
+@keyframes slideL{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
 @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @keyframes rot{to{transform:rotate(360deg)}}
-@keyframes hair{0%{transform:scaleX(0);opacity:0}40%{opacity:1}100%{transform:scaleX(1);opacity:1}}
-@keyframes pulseSoft{0%,100%{opacity:1}50%{opacity:.45}}
-.anim{animation:up .5s cubic-bezier(.22,.7,.28,1) both}
+@keyframes hair{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+@keyframes draw{from{stroke-dashoffset:1400}to{stroke-dashoffset:0}}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes soft{0%,100%{opacity:1}50%{opacity:.5}}
+.anim{animation:up .52s cubic-bezier(.22,.7,.28,1) both}
 
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
- backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);box-shadow:var(--sh)}
-.card{padding:18px 20px;transition:box-shadow .35s,transform .35s,border-color .35s}
-.card:hover{box-shadow:var(--sh2);border-color:var(--line)}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.rule{height:1px;background:var(--line);margin:14px 0;transform-origin:left;animation:hair .7s ease both}
+ backdrop-filter:blur(24px) saturate(145%);-webkit-backdrop-filter:blur(24px) saturate(145%);box-shadow:var(--sh)}
+.card{padding:19px 21px;transition:box-shadow .38s,transform .38s,border-color .38s}
+.card:hover{box-shadow:var(--sh2)}
+.eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--soft)}
+.rule{height:1px;background:var(--line);margin:13px 0;transform-origin:left;animation:hair .7s ease both}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.head b{font-size:14px;font-weight:650;letter-spacing:-.02em}
+.mini{font-size:11px;color:var(--muted)}
 
-/* логотип */
-.logo{display:block;width:132px;color:#0d141d}
+.logo{display:block;width:132px;color:#0c131c}
 .logo svg{width:100%;height:auto;display:block}
 html[data-theme=dark] .logo{color:#f2f5f9}
 
-/* ── тумблер темы ── */
+/* тумблер темы */
 .tsw{position:relative;width:60px;height:30px;border-radius:999px;border:1px solid var(--line);
- background:var(--panel2);flex:none;transition:background .35s,border-color .35s;overflow:hidden}
+ background:var(--panel2);flex:none;transition:border-color .35s;overflow:hidden}
 .tsw:hover{border-color:var(--gold)}
-.tsw i{position:absolute;top:0;bottom:0;width:30px;display:grid;place-items:center;color:var(--muted);transition:color .35s,opacity .35s}
+.tsw i{position:absolute;top:0;bottom:0;width:30px;display:grid;place-items:center;color:var(--soft);transition:color .35s}
 .tsw i svg{width:15px;height:15px;display:block}
 .tsw .s{left:0}.tsw .m{right:0}
 html[data-theme=light] .tsw .s{color:var(--gold)}
 html[data-theme=dark] .tsw .m{color:var(--gold)}
-.tsw b{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;
- background:var(--acc);box-shadow:0 2px 8px rgba(0,0,0,.28);
- transition:transform .42s cubic-bezier(.5,.05,.2,1.2)}
+.tsw b{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--acc);
+ box-shadow:0 2px 8px rgba(0,0,0,.3);transition:transform .42s cubic-bezier(.5,.05,.2,1.2)}
 html[data-theme=dark] .tsw b{transform:translateX(30px)}
-.tsw.fixed{position:fixed;right:22px;top:22px;z-index:20}
 
-/* ── логин ── */
+/* логин */
 #login{min-height:100vh;display:grid;place-items:center;padding:26px}
 .login-card{width:min(430px,100%);padding:34px 32px;animation:popq .55s cubic-bezier(.22,.7,.28,1) both}
-.login-card h1{font-size:27px;margin:20px 0 6px;font-weight:650;letter-spacing:-.03em}
+.login-card h1{font-size:27px;margin:20px 0 6px;font-weight:650;letter-spacing:-.032em}
 .login-card p{color:var(--muted);margin:0 0 20px;font-size:13.5px;line-height:1.55}
 .field{display:grid;gap:6px;margin:13px 0}
-.field label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field label{font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--soft)}
 .field input,.field select,.field textarea{width:100%;padding:12px 13px;border-radius:11px;border:1px solid var(--line);
  background:var(--field);outline:none;font-size:13.5px;transition:border-color .25s,box-shadow .25s}
 .field textarea{min-height:76px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-s)}
-.field input:disabled{opacity:.6}
-.btn{border:1px solid var(--line);background:var(--panel2);border-radius:11px;padding:11px 16px;
- font-size:13px;font-weight:600;transition:.28s}
+.field input:disabled,.field select:disabled{opacity:.55}
+.btn{border:1px solid var(--line);background:var(--panel2);border-radius:11px;padding:10px 15px;
+ font-size:12.5px;font-weight:600;transition:.28s}
 .btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
 .btn.solid{background:var(--acc);color:var(--acc-t);border-color:transparent}
 .btn.solid:hover{color:var(--acc-t);opacity:.9;box-shadow:var(--sh2)}
@@ -107,151 +125,181 @@ html[data-theme=dark] .tsw b{transform:translateX(30px)}
  font-size:11.5px;color:var(--muted);line-height:1.6}
 .note b{color:var(--text)}
 
-/* ── каркас ── */
-#app{display:grid;grid-template-columns:230px 1fr 350px;min-height:100vh}
-.side{padding:22px 14px;border-right:1px solid var(--line);background:var(--panel2);
- backdrop-filter:blur(24px);position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
-.side-logo{padding:4px 8px 20px}
-.nav{display:grid;gap:2px}
-.nav button{position:relative;width:100%;padding:10px 12px;border-radius:10px;text-align:left;font-size:13px;
+/* каркас */
+#app{display:grid;grid-template-columns:238px 1fr 358px;min-height:100vh;gap:0}
+.side{padding:22px 16px 18px;border-right:1px solid var(--line);background:var(--panel2);
+ backdrop-filter:blur(26px);position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
+.side-logo{padding:4px 6px 22px}
+.nav{display:grid;gap:16px;overflow:auto}
+.navlabel{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);
+ padding:0 10px 7px;border-bottom:1px solid var(--line2);margin-bottom:5px}
+.nav button{position:relative;width:100%;padding:9px 11px;border-radius:9px;text-align:left;font-size:12.8px;
  font-weight:550;color:var(--muted);display:flex;align-items:center;gap:10px;transition:.25s}
-.nav button svg{width:15px;height:15px;flex:none;opacity:.75}
+.nav button svg{width:15px;height:15px;flex:none;opacity:.7}
 .nav button:hover{color:var(--text);background:var(--head)}
 .nav button.active{color:var(--text);background:var(--head);font-weight:650}
-.nav button.active:before{content:"";position:absolute;left:-14px;top:9px;bottom:9px;width:2px;background:var(--gold);border-radius:2px}
+.nav button.active:before{content:"";position:absolute;left:-16px;top:8px;bottom:8px;width:2px;
+ background:var(--gold);border-radius:0 2px 2px 0;animation:fade .35s both}
 .nav button.active svg{opacity:1;color:var(--gold)}
-.me{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center}
+.nav .cnt{margin-left:auto;font-size:10px;font-weight:700;color:var(--soft);font-variant-numeric:tabular-nums}
+.me{margin-top:auto;padding:13px 11px 4px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center}
 .ava{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex:none;
- background:var(--acc);color:var(--acc-t);font-weight:700;font-size:14px}
-.me b{font-size:12.5px;display:block}
-.me span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+ background:var(--acc);color:var(--acc-t);font-weight:700;font-size:14px;letter-spacing:0}
+.me b{font-size:12.5px;display:block;line-height:1.3}
+.me span{font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--soft)}
 
-.main{padding:22px 26px;min-width:0}
-.top{display:flex;align-items:center;gap:10px;margin-bottom:18px;animation:up .45s both}
-.top h2{margin:2px 0 0;font-size:23px;font-weight:650;letter-spacing:-.035em}
-.top .sub{font-size:12px;color:var(--muted);margin-top:3px}
-.search{margin-left:auto;width:min(300px,30vw);border:1px solid var(--line);background:var(--field);
- border-radius:11px;padding:10px 13px;font-size:13px;outline:none;transition:.28s}
+.main{padding:20px 24px 28px;min-width:0}
+.topbar{display:flex;align-items:center;gap:10px;padding:14px 18px;margin-bottom:14px;animation:up .45s both}
+.topbar h2{margin:3px 0 0;font-size:21px;font-weight:650;letter-spacing:-.035em}
+.topbar .sub{font-size:11.5px;color:var(--muted);margin-top:3px}
+.search{margin-left:auto;width:min(290px,28vw);border:1px solid var(--line);background:var(--field);
+ border-radius:11px;padding:10px 13px;font-size:12.5px;outline:none;transition:.28s}
 .search:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-s)}
 .ico{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);
  display:grid;place-items:center;flex:none;transition:.28s}
 .ico svg{width:16px;height:16px}
 .ico:hover{border-color:var(--gold);color:var(--gold)}
 .ico.rot svg{animation:rot .7s cubic-bezier(.5,0,.3,1)}
+.mode{display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:700;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--soft);padding:6px 10px;border:1px solid var(--line);border-radius:999px}
+.mode i{width:5px;height:5px;border-radius:50%;background:var(--ok);animation:soft 2.6s ease-in-out infinite}
 
-/* ── KPI ── */
+/* KPI */
 .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.kpi{padding:16px 17px}
-.kpi b{display:block;font-size:29px;font-weight:600;letter-spacing:-.045em;margin:8px 0 3px}
-.kpi .d{font-size:11px;color:var(--muted)}
-.kpi.acc b{color:var(--gold)}
-.kpi.bad b{color:var(--bad)}
-.kpi.warn b{color:var(--warn)}
+.kpi{position:relative;padding:17px 18px;overflow:hidden}
+.kpi:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:transparent;transform-origin:left}
+.kpi.acc:before{background:linear-gradient(90deg,var(--gold),transparent)}
+.kpi.warn:before{background:linear-gradient(90deg,var(--warn),transparent)}
+.kpi.bad:before{background:linear-gradient(90deg,var(--bad),transparent)}
+.kpi b{display:block;font-size:30px;font-weight:600;letter-spacing:-.05em;margin:9px 0 3px;line-height:1}
+.kpi .d{font-size:10.5px;color:var(--soft)}
+.kpi.acc b{color:var(--gold)}.kpi.bad b{color:var(--bad)}.kpi.warn b{color:var(--warn)}
+.kpi:hover{transform:translateY(-2px)}
 
-/* ── графики ── */
-.grid2{display:grid;grid-template-columns:1.45fr 1fr;gap:12px;margin-top:12px}
-.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.head b{font-size:14px;font-weight:650}
-.mini{font-size:11px;color:var(--muted)}
-.chart{height:168px;display:flex;align-items:flex-end;gap:8px;padding-top:14px}
-.bar{flex:1;max-width:46px;border-radius:3px;background:linear-gradient(180deg,var(--acc),color-mix(in srgb,var(--acc) 55%,transparent));
- animation:grow .8s cubic-bezier(.22,.7,.28,1) both;transition:opacity .25s;opacity:.85}
-.bar:hover{opacity:1}
-.chart-x{display:flex;gap:8px;margin-top:8px}
-.chart-x span{flex:1;max-width:46px;text-align:center;font-size:9.5px;color:var(--muted)}
-.stat-list{display:grid;gap:11px;margin-top:14px}
-.stat{display:grid;grid-template-columns:96px 1fr 38px;align-items:center;gap:10px;font-size:12px}
-.track{height:5px;border-radius:5px;background:var(--head);overflow:hidden}
-.track i{display:block;height:100%;border-radius:5px;background:var(--acc);transition:width .8s cubic-bezier(.22,.7,.28,1)}
-.track i.ok{background:var(--ok)}.track i.warn{background:var(--warn)}.track i.bad{background:var(--bad)}
-.stat b{text-align:right;font-weight:600}
+/* графики */
+.grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-top:12px}
+.spark{width:100%;height:172px;display:block;margin-top:6px}
+.spark .grid{stroke:var(--line2);stroke-width:1}
+.spark .ln{fill:none;stroke:var(--gold);stroke-width:2;vector-effect:non-scaling-stroke;
+ stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;animation:draw 1.3s cubic-bezier(.3,.7,.3,1) both}
+.spark .dot{fill:var(--panel);stroke:var(--gold);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.spark text{fill:var(--soft);font-size:9px;letter-spacing:.06em}
+.ringwrap{display:flex;align-items:center;gap:20px;margin-top:8px}
+.ringwrap svg{flex:none;animation:rise .6s both}
+.ringc{font-size:23px;font-weight:600;letter-spacing:-.045em;fill:var(--text)}
+.ringl{font-size:8px;letter-spacing:.18em;fill:var(--soft)}
+.leg{display:grid;gap:9px;flex:1;min-width:0}
+.leg div{display:grid;grid-template-columns:8px 1fr auto auto;align-items:center;gap:9px;font-size:11.5px}
+.leg i{width:8px;height:8px;border-radius:2px}
+.leg span{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.leg b{font-weight:650;font-variant-numeric:tabular-nums}
+.leg em{font-style:normal;color:var(--soft);font-size:10px;width:34px;text-align:right}
 
-/* ── таблица ── */
-.tw{overflow:auto;border:1px solid var(--line);border-radius:12px;max-height:60vh;margin-top:14px}
+/* таблица */
+.tw{overflow:auto;border:1px solid var(--line);border-radius:12px;max-height:60vh;margin-top:14px;background:var(--panel2)}
 table{width:100%;border-collapse:collapse;font-size:12px}
-th,td{padding:10px 11px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--line2)}
-th{position:sticky;top:0;z-index:1;background:var(--head);backdrop-filter:blur(8px);
- font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-tbody tr{cursor:pointer;animation:fade .35s both;transition:background .2s}
+th,td{padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--line2)}
+th{position:sticky;top:0;z-index:1;background:var(--head);backdrop-filter:blur(10px);
+ font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--soft)}
+tbody tr{cursor:pointer;animation:fade .35s both;transition:background .2s,box-shadow .2s}
 tbody tr:hover td{background:var(--head)}
-tbody tr.sel td{background:var(--gold-s);box-shadow:inset 2px 0 0 var(--gold)}
+tbody tr:hover td:first-child{box-shadow:inset 2px 0 0 var(--line)}
+tbody tr.sel td{background:var(--gold-s)}
+tbody tr.sel td:first-child{box-shadow:inset 2px 0 0 var(--gold)}
+tbody tr:last-child td{border-bottom:0}
 .ell{max-width:220px;overflow:hidden;text-overflow:ellipsis}
-.empty{padding:44px;text-align:center;color:var(--muted);font-size:12.5px;white-space:pre-wrap;animation:fade .4s both}
+.empty{padding:46px;text-align:center;color:var(--muted);font-size:12.5px;white-space:pre-wrap;animation:fade .4s both}
 .skel{height:12px;border-radius:6px;margin:15px 0;background:linear-gradient(90deg,var(--head),var(--line),var(--head));
  background-size:200% 100%;animation:sk 1.2s linear infinite}
+.no{font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 
-/* ── бейджи ── */
-.bg{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:650;letter-spacing:.04em;
- padding:3px 8px;border-radius:6px;border:1px solid var(--line);background:var(--panel2);color:var(--muted)}
-.bg:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
+/* индикаторы */
+.bg{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;
+ padding:3px 9px 3px 7px;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--muted)}
+.bg:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
 .bg.n{color:var(--text)}.bg.w{color:var(--gold)}.bg.h{color:var(--warn)}
-.bg.d{color:var(--ok)}.bg.x{color:var(--bad)}.bg.o{opacity:.7}
+.bg.d{color:var(--ok)}.bg.x{color:var(--bad)}.bg.o{opacity:.65}
+.pri{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:550}
+.pri i{display:flex;gap:2px}
+.pri i s{width:3px;height:10px;border-radius:1px;background:var(--line);text-decoration:none}
+.pri i s.on{background:currentColor}
+.pri.p1{color:var(--ok)}.pri.p2{color:var(--muted)}.pri.p3{color:var(--warn)}.pri.p4{color:var(--bad)}
 
-/* ── таймер SLA ── */
-.tv{font-size:11.5px;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.01em;color:var(--ok)}
+/* таймер */
+.tv{font-size:11.5px;font-weight:650;font-variant-numeric:tabular-nums;color:var(--ok)}
 .tv.warn{color:var(--warn)}
-.tv.bad{color:var(--bad);animation:pulseSoft 2s ease-in-out infinite}
-.tv.done{color:var(--muted);font-weight:500}
-.tcell{min-width:132px}
-.tcell .track{margin-top:5px;width:120px}
-.sla-box{margin-top:14px;padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--panel2)}
-.sla-box .big{font-size:27px;font-weight:600;letter-spacing:-.04em;margin:7px 0 10px;font-variant-numeric:tabular-nums}
+.tv.bad{color:var(--bad);animation:soft 2s ease-in-out infinite}
+.tv.done{color:var(--soft);font-weight:500}
+.tcell{min-width:136px}
+.track{height:4px;border-radius:4px;background:var(--head);overflow:hidden;margin-top:6px;width:124px}
+.track i{display:block;height:100%;border-radius:4px;background:var(--ok);transition:width .8s cubic-bezier(.22,.7,.28,1)}
+.track i.warn{background:var(--warn)}.track i.bad{background:var(--bad)}.track i.ok{background:var(--ok)}
+.track.wide{width:100%}
+.sla-box{margin-top:15px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.sla-box .big{font-size:29px;font-weight:600;letter-spacing:-.045em;margin:8px 0 11px;font-variant-numeric:tabular-nums}
 .sla-box .big.warn{color:var(--warn)}.sla-box .big.bad{color:var(--bad)}.sla-box .big.ok{color:var(--ok)}
-.sla-meta{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin-top:8px}
+.sla-meta{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:var(--soft);margin-top:9px}
 
-/* ── фильтры ── */
-.filters{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
-.filters select,.filters input{border:1px solid var(--line);background:var(--field);border-radius:9px;
- padding:7px 10px;font-size:12px;outline:none}
-.chip{border:1px solid var(--line);border-radius:9px;padding:7px 12px;font-size:11.5px;font-weight:600;
- color:var(--muted);background:var(--panel2);transition:.25s}
-.chip:hover{color:var(--text);border-color:var(--gold)}
-.chip.on{background:var(--acc);color:var(--acc-t);border-color:transparent}
+/* фильтры */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px;align-items:center}
+.filters select{border:1px solid var(--line);background:var(--field);border-radius:9px;padding:7px 10px;font-size:12px;outline:none}
+.filters select:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-s)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--panel2)}
+.seg button{padding:7px 12px;font-size:11.5px;font-weight:600;color:var(--muted);border-right:1px solid var(--line);transition:.22s}
+.seg button:last-child{border-right:0}
+.seg button:hover{color:var(--text);background:var(--head)}
+.seg button.on{background:var(--acc);color:var(--acc-t)}
 .act{border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:10.5px;font-weight:600;
  color:var(--muted);transition:.22s}
 .act:hover{color:var(--gold);border-color:var(--gold)}
 .act.bad:hover{color:var(--bad);border-color:var(--bad)}
+.acts{display:flex;gap:5px}
 
-/* ── drawer ── */
-.drawer{border-left:1px solid var(--line);background:var(--panel2);backdrop-filter:blur(24px);
- padding:20px;position:sticky;top:0;height:100vh;overflow:auto}
+/* drawer */
+.drawer{border-left:1px solid var(--line);background:var(--panel2);backdrop-filter:blur(26px);
+ padding:20px 20px 30px;position:sticky;top:0;height:100vh;overflow:auto}
 .drawer>*{animation:slideL .4s both}
-.drawer h3{margin:4px 0 3px;font-size:18px;font-weight:650;letter-spacing:-.03em}
+.drawer h3{margin:5px 0 3px;font-size:19px;font-weight:650;letter-spacing:-.035em}
 .drawer .muted{font-size:11.5px;color:var(--muted)}
-.sect{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
- margin:18px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
-.row{display:grid;grid-template-columns:104px 1fr;gap:8px;padding:5px 0;font-size:12px;align-items:start}
-.row span{color:var(--muted)}
-.row b{font-weight:600;word-break:break-word;white-space:pre-wrap}
-.dacts{display:grid;gap:7px;margin-top:18px}
+.sect{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);
+ margin:19px 0 9px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:100px 1fr;gap:9px;padding:5px 0;font-size:12px;align-items:start}
+.row>span{color:var(--soft)}
+.row>b{font-weight:600;word-break:break-word;white-space:pre-wrap}
+.tl{position:relative;padding-left:19px;margin-top:4px}
+.tl:before{content:"";position:absolute;left:4px;top:9px;bottom:11px;width:1px;background:var(--line)}
+.tl .st{position:relative;padding:6px 0;font-size:12px;font-weight:600}
+.tl .st:before{content:"";position:absolute;left:-19px;top:10px;width:9px;height:9px;border-radius:50%;
+ background:var(--bg);border:1.5px solid var(--line);box-sizing:border-box}
+.tl .st.on:before{border-color:var(--gold);background:var(--gold)}
+.tl .st.now:before{border-color:var(--gold);background:var(--bg);box-shadow:0 0 0 3px var(--gold-s)}
+.tl .st em{display:block;font-style:normal;font-size:10.5px;font-weight:400;color:var(--soft);margin-top:1px}
+.dacts{display:grid;gap:7px;margin-top:20px}
 
-/* ── модалка ── */
+/* модалка */
 .modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:18px;
- background:rgba(8,11,15,.5);backdrop-filter:blur(8px);animation:fade .22s both}
-.mcard{width:min(840px,100%);max-height:92vh;overflow:auto;padding:24px;animation:popq .32s cubic-bezier(.22,.7,.28,1) both}
-.mhead{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.mhead h3{margin:0;font-size:18px;font-weight:650;letter-spacing:-.03em}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+ background:rgba(7,10,14,.52);backdrop-filter:blur(9px);animation:fade .22s both}
+.mcard{width:min(860px,100%);max-height:92vh;overflow:auto;padding:0;animation:popq .32s cubic-bezier(.22,.7,.28,1) both}
+.mbody{padding:22px 24px}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 24px 14px;
+ border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2;backdrop-filter:blur(24px);
+ border-radius:var(--r) var(--r) 0 0}
+.mhead h3{margin:3px 0 0;font-size:18px;font-weight:650;letter-spacing:-.03em}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .full{grid-column:1/-1}
-.macts{display:flex;justify-content:flex-end;gap:9px;margin-top:18px;flex-wrap:wrap}
+.macts{display:flex;justify-content:flex-end;gap:9px;padding:14px 24px 20px;position:sticky;bottom:0;
+ background:var(--panel);border-top:1px solid var(--line);backdrop-filter:blur(24px)}
 
-/* ── тосты ── */
 #toasts{position:fixed;right:20px;bottom:20px;display:grid;gap:9px;z-index:70;max-width:340px}
 .toast{padding:12px 14px;border-radius:11px;font-size:12px;line-height:1.5;white-space:pre-wrap;
- border:1px solid var(--line);background:var(--panel);box-shadow:var(--sh2);backdrop-filter:blur(18px);
- animation:up .3s cubic-bezier(.22,.7,.28,1);transition:opacity .3s,transform .3s;border-left:2px solid var(--muted)}
-.toast.ok{border-left-color:var(--ok)}
-.toast.err{border-left-color:var(--bad)}
-.toast.info{border-left-color:var(--gold)}
-.flag{position:fixed;left:16px;bottom:16px;z-index:60;font-size:9.5px;font-weight:700;letter-spacing:.14em;
- text-transform:uppercase;padding:7px 12px;border-radius:999px;border:1px solid var(--line);
- background:var(--panel);color:var(--muted);box-shadow:var(--sh)}
+ border:1px solid var(--line);border-left:2px solid var(--muted);background:var(--panel);box-shadow:var(--sh2);
+ backdrop-filter:blur(18px);animation:up .3s cubic-bezier(.22,.7,.28,1);transition:opacity .3s,transform .3s}
+.toast.ok{border-left-color:var(--ok)}.toast.err{border-left-color:var(--bad)}.toast.info{border-left-color:var(--gold)}
 
-@media(max-width:1300px){#app{grid-template-columns:210px 1fr}.drawer{display:none}.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1320px){#app{grid-template-columns:216px 1fr}.drawer{display:none}.kpis{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:880px){
  #app{grid-template-columns:1fr}.side{position:relative;height:auto}
- .nav{grid-template-columns:repeat(2,1fr);display:grid}
- .main{padding:14px}.grid2{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}
+ .nav{gap:10px}.main{padding:14px}.grid2{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}
  .search{display:none}.fgrid{grid-template-columns:1fr}
 }
 </style>
@@ -290,9 +338,10 @@ tbody tr.sel td{background:var(--gold-s);box-shadow:inset 2px 0 0 var(--gold)}
   </aside>
 
   <main class="main">
-    <div class="top">
+    <div class="panel topbar">
       <div><div class="eyebrow" id="pageKicker">CRM</div><h2 id="pageTitle">—</h2><div class="sub" id="pageSub"></div></div>
       <input id="search" class="search" placeholder="Поиск по № / организации / ИНН / телефону">
+      <span class="mode" id="modeFlag"><i></i><span id="modeTxt">—</span></span>
       <button class="tsw" data-theme-btn aria-label="Сменить тему"><b></b>
         <i class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></i>
         <i class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></i>
@@ -312,15 +361,7 @@ tbody tr.sel td{background:var(--gold-s);box-shadow:inset 2px 0 0 var(--gold)}
 <script>
 'use strict';
 /*═════ КОНФИГ ═════*/
-const CFG={
-  API:'',                 // https://script.google.com/macros/s/XXXX/exec
-  TIMEOUT:25000,
-  SLA_HOURS:60,
-  WARN_HOURS:6,           // порог «скоро истекает»
-  SIMULATE_INTAKE:true,   // демо: имитация входящих заявок с сайта
-  INTAKE_EVERY:60000
-};
-/* 405 невозможен: сеть используется ТОЛЬКО при валидном абсолютном адресе Apps Script */
+const CFG={API:'',TIMEOUT:25000,SLA_HOURS:60,WARN_HOURS:6,SIMULATE_INTAKE:true,INTAKE_EVERY:60000};
 const API_RE=/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec(\?.*)?$/;
 const LIVE=API_RE.test(CFG.API.trim());
 
@@ -343,57 +384,48 @@ const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const H=36e5;
 function fmt(v){if(!v)return '—';const d=new Date(v);if(isNaN(d))return esc(v);
   return d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});}
-function pad(n){return String(n).padStart(2,'0');}
+const pad=n=>String(n).padStart(2,'0');
 function dur(ms){ms=Math.max(0,ms);
   const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
   return d>0?(d+' д '+pad(h)+':'+pad(m)):(pad(h)+':'+pad(m)+':'+pad(s));}
-function durShort(ms){const h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4);return h+' ч '+pad(m)+' м';}
+const durShort=ms=>Math.floor(ms/36e5)+' ч '+pad(Math.floor(ms%36e5/6e4))+' м';
 const deadline=r=>new Date(r.ts).getTime()+CFG.SLA_HOURS*H;
 const CLOSED=['Выполнено','Отменено'];
 const isClosed=r=>CLOSED.includes(r.status);
-function overdue(r){return !isClosed(r)&&Date.now()>deadline(r);}
-function lvl(left){return left<0?'bad':(left<CFG.WARN_HOURS*H?'warn':'ok');}
-function countUp(el,to){let s=null;const dr=650;
+const overdue=r=>!isClosed(r)&&Date.now()>deadline(r);
+const lvl=l=>l<0?'bad':(l<CFG.WARN_HOURS*H?'warn':'ok');
+function countUp(el,to){let s=null;const dr=680;
   requestAnimationFrame(function st(t){if(!s)s=t;const p=Math.min(1,(t-s)/dr);
     el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(st);});}
 function debounce(f,ms){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>f(...a),ms);};}
 
-/*═════ ЖИВОЙ ТАЙМЕР SLA ═════*/
+/*═════ ТАЙМЕР SLA ═════*/
 function timerCell(r){
   if(isClosed(r)){
-    const done=r.doneAt||r.updatedAt||r.ts;
-    const spent=new Date(done).getTime()-new Date(r.ts).getTime();
-    const inTime=spent<=CFG.SLA_HOURS*H;
-    return `<div class="tcell"><span class="tv done">${durShort(spent)} · ${inTime?'в срок':'с нарушением'}</span>
-      <div class="track"><i class="${inTime?'ok':'bad'}" style="width:${Math.min(100,spent/(CFG.SLA_HOURS*H)*100)}%"></i></div></div>`;
-  }
+    const sp=new Date(r.doneAt||r.updatedAt||r.ts).getTime()-new Date(r.ts).getTime();
+    const ok=sp<=CFG.SLA_HOURS*H;
+    return `<div class="tcell"><span class="tv done">${durShort(sp)} · ${ok?'в срок':'нарушение'}</span>
+      <div class="track"><i class="${ok?'ok':'bad'}" style="width:${Math.min(100,sp/(CFG.SLA_HOURS*H)*100)}%"></i></div></div>`;}
   const st=new Date(r.ts).getTime(),dl=deadline(r);
-  return `<div class="tcell">
-    <span class="tv" data-dl="${dl}" data-st="${st}">—</span>
+  return `<div class="tcell"><span class="tv" data-dl="${dl}" data-st="${st}">—</span>
     <div class="track"><i data-role="fill" data-dl="${dl}" data-st="${st}" style="width:0"></i></div></div>`;
 }
 function tick(){
   const now=Date.now();
   document.querySelectorAll('[data-dl]').forEach(el=>{
-    const dl=+el.dataset.dl,st=+el.dataset.st,left=dl-now;
-    const pct=Math.max(0,Math.min(100,(now-st)/(dl-st)*100));
-    const k=lvl(left);
-    if(el.dataset.role==='fill'){el.className=k;el.style.width=pct+'%';return;}
-    const big=el.classList.contains('big');
+    const dl=+el.dataset.dl,st=+el.dataset.st,left=dl-now,k=lvl(left);
+    if(el.dataset.role==='fill'){el.className=k;el.style.width=Math.max(0,Math.min(100,(now-st)/(dl-st)*100))+'%';return;}
     el.textContent=left>=0?dur(left):'−'+dur(-left);
-    el.className=(big?'big ':'tv ')+k;
-  });
+    el.className=(el.classList.contains('big')?'big ':'tv ')+k;});
 }
 setInterval(tick,1000);
 
 /*═════ ТЕМА ═════*/
 const theme=()=>localStorage.getItem('lpTheme')||'light';
-function applyTheme(t){document.documentElement.dataset.theme=t;}
+const applyTheme=t=>document.documentElement.dataset.theme=t;
 applyTheme(theme());
-document.addEventListener('click',e=>{
-  if(e.target.closest('[data-theme-btn]')){
-    const t=theme()==='dark'?'light':'dark';localStorage.setItem('lpTheme',t);applyTheme(t);}
-});
+document.addEventListener('click',e=>{if(e.target.closest('[data-theme-btn]')){
+  const t=theme()==='dark'?'light':'dark';localStorage.setItem('lpTheme',t);applyTheme(t);}});
 
 /*═════ ТОСТЫ ═════*/
 function toast(msg,type){const el=document.createElement('div');
@@ -406,7 +438,7 @@ const S={token:sessionStorage.getItem('lpToken')||'',me:null,page:'dashboard',
   selected:null,busy:false,filters:{status:'',priority:'',exec:'',risk:'',q:''}};
 const isAdmin=()=>S.me&&S.me.role==='ADMIN';
 
-/*═════ ТРАНСПОРТ (без 405) ═════*/
+/*═════ ТРАНСПОРТ ═════*/
 async function call(action,payload){
   if(!LIVE) return CORE.call(action,payload||{});
   const c=new AbortController(),t=setTimeout(()=>c.abort(),CFG.TIMEOUT);
@@ -419,7 +451,7 @@ async function call(action,payload){
   }catch(e){clearTimeout(t);
     throw new Error(e.name==='AbortError'?'Сервер не ответил за '+(CFG.TIMEOUT/1000)+' с':'Нет связи с сервером');}
   clearTimeout(t);
-  if(raw.startsWith('<')) throw new Error('Доступ к веб-приложению закрыт. Разверните Apps Script с параметром «Доступ: Все».');
+  if(raw.startsWith('<')) throw new Error('Веб-приложение закрыто. Разверните Apps Script с доступом «Все».');
   let d;try{d=raw?JSON.parse(raw):{};}catch{throw new Error('Некорректный ответ сервера');}
   if(d.code===401){forceLogout();throw new Error(d.error||'Сессия истекла');}
   if(d.ok===false) throw new Error(d.error||'Ошибка сервера');
@@ -458,7 +490,7 @@ const db={
   {id:'r5',no:1005,ts:now-79*H,source:'Веб-форма',employee:'Петров П.',priority:'Высокий',status:'В работе',executorId:'e2',orgId:'o2',
    kktCount:3,rnm:'0003333333333333',zn:'00106900333333',fn:'9999078900003333',model:'Эвотор 10',
    needTrip:'Да',tripAddress:'СПб, Невский пр., 100',esp:'Нет',kep:'Да',wifi:'Нет',comment:'Массовая замена ФН по трём кассам'}],
- log:[],settings:{slaHours:60,warnHours:6,notifyOrg:true,notifyExec:true,mailFrom:'crm@lifepay.ru',version:'CRM 8.0'},
+ log:[],settings:{slaHours:60,warnHours:6,notifyOrg:true,notifyExec:true,mailFrom:'crm@lifepay.ru',version:'CRM 8.1'},
  seq:1005};
 let cur=null;
 const org=id=>db.orgs.find(o=>o.id===id)||{};
@@ -480,8 +512,6 @@ function ensureOrg(p){
   o={id:uid(),name:p.organization||'Без названия',inn:p.inn||'',contact:p.contact||'',
      phone:p.phone||'',email:p.email||'',active:true,createdAt:Date.now()};
   db.orgs.push(o);log('autoCreate','org',o.id,'Автосоздание: '+o.name);return o;}
-
-/* входящая заявка «с сайта» */
 const SEED=[
  {organization:'ООО «Вектор»',inn:'7701234567',priority:'Высокий',model:'АТОЛ 91Ф',comment:'Касса не выходит на связь с ОФД'},
  {organization:'АО «Стройпуть»',inn:'7809876543',priority:'Средний',model:'Эвотор 7.2',comment:'Требуется замена ФН по сроку'},
@@ -489,13 +519,11 @@ const SEED=[
  {organization:'ООО «Новый клиент»',inn:'7723456789',priority:'Низкий',model:'АТОЛ 30Ф',comment:'Консультация по настройке Wi-Fi'}];
 function intake(p){
   const o=ensureOrg(p);
-  const r={id:uid(),no:++db.seq,ts:Date.now(),source:p.source||'Веб-форма',
-    employee:p.employee||'Веб-форма',priority:p.priority||'Средний',status:'Новая',
-    executorId:p.executorId||'',orgId:o.id,kktCount:p.kktCount||1,
-    rnm:p.rnm||'',zn:p.zn||'',fn:p.fn||'',model:p.model||'',needTrip:p.needTrip||'Нет',
-    tripAddress:p.tripAddress||'',esp:p.esp||'Нет',kep:p.kep||'Нет',wifi:p.wifi||'Нет',comment:p.comment||''};
-  db.reqs.unshift(r);log('intake','request',r.id,'№'+r.no+' · '+o.name+' · '+r.source);
-  return view(r);}
+  const r={id:uid(),no:++db.seq,ts:Date.now(),source:p.source||'Веб-форма',employee:p.employee||'Веб-форма',
+    priority:p.priority||'Средний',status:'Новая',executorId:p.executorId||'',orgId:o.id,kktCount:p.kktCount||1,
+    rnm:p.rnm||'',zn:p.zn||'',fn:p.fn||'',model:p.model||'',needTrip:p.needTrip||'Нет',tripAddress:p.tripAddress||'',
+    esp:p.esp||'Нет',kep:p.kep||'Нет',wifi:p.wifi||'Нет',comment:p.comment||''};
+  db.reqs.unshift(r);log('intake','request',r.id,'№'+r.no+' · '+o.name+' · '+r.source);return view(r);}
 
 async function api(action,p){
  await new Promise(r=>setTimeout(r,120));
@@ -511,20 +539,16 @@ async function api(action,p){
     if(!cur)throw new Error('Сессия истекла');
     const rows=scope(db.reqs).map(view).sort((a,b)=>b.ts-a.ts);
     const open=rows.filter(r=>!CLOSED.includes(r.status));
-    const st={total:rows.length,
-      newCount:rows.filter(r=>r.status==='Новая').length,
-      inWork:rows.filter(r=>r.status==='В работе').length,
-      wait:rows.filter(r=>r.status==='Ожидание').length,
-      done:rows.filter(r=>r.status==='Выполнено').length,
-      overdue:open.filter(r=>overdue(r)).length,
+    const st={total:rows.length,newCount:rows.filter(r=>r.status==='Новая').length,
+      inWork:rows.filter(r=>r.status==='В работе').length,wait:rows.filter(r=>r.status==='Ожидание').length,
+      done:rows.filter(r=>r.status==='Выполнено').length,overdue:open.filter(r=>overdue(r)).length,
       soon:open.filter(r=>{const l=deadline(r)-Date.now();return l>0&&l<CFG.WARN_HOURS*H;}).length};
     const today=new Date();today.setHours(0,0,0,0);
     const chart=[];for(let i=6;i>=0;i--){const a=today.getTime()-i*864e5;
       chart.push({d:new Date(a),n:rows.filter(r=>r.ts>=a&&r.ts<a+864e5).length});}
     return {me:{login:cur.login,name:cur.name,role:cur.role,orgId:cur.orgId,
         organization:cur.orgId?org(cur.orgId).name:'LIFE PAY'},
-      requests:rows,stats:st,chart,
-      orgs:cur.role==='ADMIN'?db.orgs.slice():[],execs:db.execs.slice(),
+      requests:rows,stats:st,chart,orgs:cur.role==='ADMIN'?db.orgs.slice():[],execs:db.execs.slice(),
       users:cur.role==='ADMIN'?db.users.map(u=>({id:u.id,login:u.login,name:u.name,role:u.role,orgId:u.orgId,
         execId:u.execId,organization:u.orgId?org(u.orgId).name:'—',active:u.active})):[],
       log:cur.role==='ADMIN'?db.log.slice(0,200):[],settings:db.settings};}
@@ -535,8 +559,7 @@ async function api(action,p){
     const before=r.status;
     ['employee','priority','status','kktCount','rnm','zn','fn','model','needTrip','tripAddress','esp','kep','wifi','comment']
       .forEach(k=>{if(p[k]!==undefined)r[k]=p[k];});
-    if(cur.role==='ADMIN'){const o=ensureOrg(p);r.orgId=o.id;
-      if(p.executorId!==undefined)r.executorId=p.executorId;}
+    if(cur.role==='ADMIN'){r.orgId=ensureOrg(p).id;if(p.executorId!==undefined)r.executorId=p.executorId;}
     if(CLOSED.includes(r.status)&&!CLOSED.includes(before))r.doneAt=Date.now();
     if(!CLOSED.includes(r.status))delete r.doneAt;
     log('update','request',r.id,'№'+r.no+(before!==r.status?(': '+before+' → '+r.status):': поля изменены'));
@@ -580,8 +603,7 @@ async function api(action,p){
       Object.assign(u,{name:p.name,role:p.role,orgId:p.orgId||'',execId:p.execId||'',active:!!p.active});
       if(p.pass)u.pass=p.pass;log('update','user',u.id,u.login);return u;}
     if(db.users.some(x=>x.login===p.login))throw new Error('Такой логин уже существует');
-    const u={id:uid(),login:p.login,pass:p.pass||'123',name:p.name,role:p.role||'ORG',
-      orgId:p.orgId||'',execId:p.execId||'',active:true};
+    const u={id:uid(),login:p.login,pass:p.pass||'123',name:p.name,role:p.role||'ORG',orgId:p.orgId||'',execId:p.execId||'',active:true};
     db.users.push(u);log('create','user',u.id,u.login);return u;}
   case 'toggleUser':{need('ADMIN');const u=db.users.find(x=>x.id===p.id);
     if(u.login===cur.login)throw new Error('Нельзя отключить самого себя');
@@ -593,7 +615,7 @@ async function api(action,p){
     CFG.SLA_HOURS=Number(p.slaHours)||60;CFG.WARN_HOURS=Number(p.warnHours)||6;
     log('update','settings','','SLA '+db.settings.slaHours+' ч');return db.settings;}
   case 'testMail':{need('ADMIN');log('test','mail','',p.to);
-    return {ok:true,message:'Локальный режим: письмо условно отправлено на '+p.to};}
+    return {ok:true,message:'Автономный режим: письмо условно отправлено на '+p.to};}
   case 'ping':return {ok:true,mode:'local',version:db.settings.version};
   default:throw new Error('Неизвестное действие: '+action);}
 }
@@ -603,9 +625,9 @@ return {call:api,randomIntake:()=>intake(SEED[Math.floor(Math.random()*SEED.leng
 /*═════ ВХОД ═════*/
 $('lgHint').innerHTML = LIVE
  ? 'Рабочий режим. Сервер: <b>Apps Script</b>.'
- : '<b>Автономный режим.</b> Сетевые запросы отключены — ошибка 405 исключена.<br>'+
-   'Доступы: <b>admin / admin</b> — полный, <b>vektor / 123</b> — организация, <b>msk / 123</b> — исполнитель.<br>'+
-   'Для подключения к таблице укажите <b>CFG.API</b> = адрес, оканчивающийся на <b>/exec</b>.';
+ : '<b>Автономный режим.</b> Сетевые запросы отключены.<br>'+
+   'Доступы: <b>admin / admin</b> — полный, <b>vektor / 123</b> — организация, <b>msk / 123</b> — исполнитель.';
+$('modeTxt').textContent=LIVE?'Рабочий режим':'Автономный режим';
 
 $('loginForm').addEventListener('submit',async e=>{
   e.preventDefault();
@@ -640,19 +662,32 @@ const IC={
  exe :'<path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 1 5.4-5.4z"/>',
  usr :'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/>',
  log :'<path d="M4 6h16M4 12h16M4 18h10"/>',
- set :'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 7 19.4a1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a1.7 1.7 0 0 0-1.6-1H1a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 3 9a1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 9 3.6V3a2 2 0 1 1 4 0v.1A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 20.4 9H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'};
+ set :'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9M4.6 9a1.7 1.7 0 0 0-.3-1.9M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>'};
 const svg=d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 const PAGES={
  dashboard:{t:'Панель управления',k:'Обзор',s:'Показатели, нагрузка и контроль сроков',i:IC.dash,all:1},
  requests :{t:'Заявки',k:'Работа',s:'Поступают автоматически из веб-формы · SLA '+CFG.SLA_HOURS+' ч',i:IC.req,all:1},
  orgs     :{t:'Организации',k:'Справочники',s:'Клиенты, реквизиты, автосоздание из заявок',i:IC.org},
  execs    :{t:'Исполнители',k:'Справочники',s:'Сервисные центры и их загрузка',i:IC.exe},
- users    :{t:'Пользователи',k:'Доступ',s:'Учётные записи и роли',i:IC.usr},
- log      :{t:'Журнал действий',k:'Аудит',s:'Полная история изменений',i:IC.log},
- settings :{t:'Настройки',k:'Система',s:'SLA, уведомления, подключение',i:IC.set}};
+ users    :{t:'Пользователи',k:'Администрирование',s:'Учётные записи и роли',i:IC.usr},
+ log      :{t:'Журнал действий',k:'Администрирование',s:'Полная история изменений',i:IC.log},
+ settings :{t:'Настройки',k:'Администрирование',s:'SLA, уведомления, подключение',i:IC.set}};
+const GROUPS=[['Обзор',['dashboard']],['Работа',['requests']],['Справочники',['orgs','execs']],
+              ['Администрирование',['users','log','settings']]];
+function navCount(k){
+  if(k==='requests')return S.requests.filter(r=>!isClosed(r)).length||'';
+  if(k==='orgs')return S.orgs.length||'';
+  if(k==='execs')return S.execs.length||'';
+  if(k==='users')return S.users.length||'';
+  return '';}
 function buildNav(){
-  $('nav').innerHTML=Object.entries(PAGES).filter(([k,v])=>v.all||isAdmin())
-   .map(([k,v])=>`<button type="button" data-page="${k}" class="${S.page===k?'active':''}">${svg(v.i)}${v.t}</button>`).join('');
+  $('nav').innerHTML=GROUPS.map(([g,keys])=>{
+    const items=keys.filter(k=>PAGES[k].all||isAdmin());
+    if(!items.length)return '';
+    return `<div><div class="navlabel">${g}</div>`+items.map(k=>{
+      const c=navCount(k);
+      return `<button type="button" data-page="${k}" class="${S.page===k?'active':''}">${svg(PAGES[k].i)}${PAGES[k].t}${c?`<span class="cnt">${c}</span>`:''}</button>`;
+    }).join('')+`</div>`;}).join('');
 }
 $('nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b)go(b.dataset.page);});
 const skeleton=()=>`<div class="panel card">${Array.from({length:6},(_,i)=>`<div class="skel" style="width:${94-i*9}%"></div>`).join('')}</div>`;
@@ -671,12 +706,12 @@ async function refresh(){
 async function go(page){
   if(S.busy)return;
   if(PAGES[page]&&!PAGES[page].all&&!isAdmin()){toast('Раздел доступен только администратору');return;}
-  S.page=page;buildNav();
+  S.page=page;
   const meta=PAGES[page]||PAGES.dashboard;
   $('pageKicker').textContent=meta.k;$('pageTitle').textContent=meta.t;$('pageSub').textContent=meta.s;
   $('content').innerHTML=skeleton();S.busy=true;
   try{
-    await refresh();
+    await refresh();buildNav();
     ({dashboard:renderDash,requests:renderRequests,orgs:renderOrgs,execs:renderExecs,
       users:renderUsers,log:renderLog,settings:renderSettings}[page]||renderDash)();
     tick();
@@ -684,18 +719,50 @@ async function go(page){
   finally{S.busy=false;}
 }
 
+/*═════ ГРАФИКА ═════*/
+function sparkline(points){
+  const W=560,Ht=172,padL=10,padR=10,top=16,bottom=30;
+  const max=Math.max(1,...points.map(p=>p.n));
+  const n=points.length,step=n>1?(W-padL-padR)/(n-1):0;
+  const X=i=>padL+i*step, Y=v=>Ht-bottom-(v/max)*(Ht-top-bottom);
+  let d='M'+X(0)+' '+Y(points[0].n);
+  for(let i=1;i<n;i++){const cx=(X(i-1)+X(i))/2;
+    d+=` C${cx} ${Y(points[i-1].n)},${cx} ${Y(points[i].n)},${X(i)} ${Y(points[i].n)}`;}
+  const area=d+` L${X(n-1)} ${Ht-bottom} L${X(0)} ${Ht-bottom} Z`;
+  const grid=[0,.5,1].map(k=>`<line class="grid" x1="0" y1="${top+k*(Ht-top-bottom)}" x2="${W}" y2="${top+k*(Ht-top-bottom)}"/>`).join('');
+  const dots=points.map((p,i)=>`<circle class="dot" cx="${X(i)}" cy="${Y(p.n)}" r="3"><title>${p.n}</title></circle>`).join('');
+  const labels=points.map((p,i)=>`<text x="${X(i)}" y="${Ht-10}" text-anchor="middle">${new Date(p.d).toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit'})}</text>`).join('');
+  const vals=points.map((p,i)=>`<text x="${X(i)}" y="${Y(p.n)-9}" text-anchor="middle" style="font-size:9.5px;fill:var(--muted)">${p.n}</text>`).join('');
+  return `<svg class="spark" viewBox="0 0 ${W} ${Ht}" preserveAspectRatio="none">
+    <defs><linearGradient id="gA" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="var(--gold)" stop-opacity=".26"/>
+      <stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></linearGradient></defs>
+    ${grid}<path d="${area}" fill="url(#gA)"/><path class="ln" d="${d}"/>${dots}${vals}${labels}</svg>`;
+}
+function ringChart(parts,total){
+  const R=52,C=2*Math.PI*R;let off=0;
+  const arcs=parts.map(p=>{const len=total?p.n/total*C:0;
+    const s=`<circle cx="70" cy="70" r="${R}" fill="none" stroke="${p.c}" stroke-width="13"
+      stroke-dasharray="${len.toFixed(2)} ${(C-len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}"
+      transform="rotate(-90 70 70)"/>`;off+=len;return s;}).join('');
+  return `<svg width="140" height="140" viewBox="0 0 140 140">
+    <circle cx="70" cy="70" r="${R}" fill="none" stroke="var(--head)" stroke-width="13"/>
+    ${arcs}<text class="ringc" x="70" y="70" text-anchor="middle">${total}</text>
+    <text class="ringl" x="70" y="86" text-anchor="middle">ЗАЯВОК</text></svg>`;
+}
+
 /*═════ ПАНЕЛЬ ═════*/
 function renderDash(){
-  const s=S.stats,ch=S.chart.length?S.chart:[];
-  const max=Math.max(1,...ch.map(c=>c.n));
+  const s=S.stats,ch=S.chart.length?S.chart:[{d:new Date(),n:0}];
   const open=S.requests.filter(r=>!isClosed(r));
   const risk=open.slice().sort((a,b)=>deadline(a)-deadline(b)).slice(0,6);
-  const byStatus=['Новая','В работе','Ожидание','Выполнено','Отменено']
-    .map(st=>({st,n:S.requests.filter(r=>r.status===st).length}));
-  const tot=Math.max(1,S.requests.length);
+  const defs=[['Новая','var(--text)'],['В работе','var(--gold)'],['Ожидание','var(--warn)'],
+              ['Выполнено','var(--ok)'],['Отменено','var(--bad)']];
+  const parts=defs.map(([st,c])=>({st,c,n:S.requests.filter(r=>r.status===st).length}));
+  const tot=S.requests.length;
   $('content').innerHTML=`
   <div class="kpis">
-    ${kpi('Всего заявок',s.total,'за всё время','',0)}
+    ${kpi('Всего заявок',s.total,'за весь период','',0)}
     ${kpi('Новые',s.newCount,'ожидают назначения','acc',1)}
     ${kpi('В работе',s.inWork,'у исполнителей','',2)}
     ${kpi('Истекает < '+CFG.WARN_HOURS+' ч',s.soon,'требуют внимания','warn',3)}
@@ -703,36 +770,34 @@ function renderDash(){
   </div>
   <div class="grid2">
     <div class="panel card anim" style="animation-delay:.06s">
-      <div class="head"><b>Поступление заявок</b><span class="mini">7 дней</span></div>
-      <div class="chart">${ch.map((c,i)=>`<div class="bar" style="height:${Math.max(4,c.n/max*100)}%;animation-delay:${.08+i*.06}s" title="${c.n}"></div>`).join('')}</div>
-      <div class="chart-x">${ch.map(c=>`<span>${new Date(c.d).toLocaleDateString('ru-RU',{day:'2-digit',month:'2-digit'})}</span>`).join('')}</div>
+      <div class="head"><div><b>Поступление заявок</b><div class="mini" style="margin-top:3px">Динамика за 7 дней</div></div>
+        <span class="mini">всего ${ch.reduce((a,b)=>a+b.n,0)}</span></div>
+      ${sparkline(ch)}
     </div>
     <div class="panel card anim" style="animation-delay:.12s">
-      <div class="head"><b>Структура по статусам</b><span class="mini">всего ${S.requests.length}</span></div>
-      <div class="stat-list">${byStatus.map(b=>`
-        <div class="stat"><span class="mini">${b.st}</span>
-          <div class="track"><i style="width:${b.n/tot*100}%"></i></div><b>${b.n}</b></div>`).join('')}</div>
+      <div class="head"><div><b>Структура портфеля</b><div class="mini" style="margin-top:3px">Распределение по статусам</div></div></div>
+      <div class="ringwrap">${ringChart(parts,tot)}
+        <div class="leg">${parts.map(p=>`<div><i style="background:${p.c}"></i>
+          <span>${p.st}</span><b>${p.n}</b><em>${tot?Math.round(p.n/tot*100):0}%</em></div>`).join('')}</div></div>
     </div>
   </div>
   <div class="panel card anim" style="margin-top:12px;animation-delay:.18s">
-    <div class="head"><b>Ближайшие дедлайны</b>
-      <button class="act" data-nav="requests">Все заявки</button></div>
+    <div class="head"><div><b>Ближайшие дедлайны</b><div class="mini" style="margin-top:3px">Заявки, требующие действия в первую очередь</div></div>
+      <button class="act" data-nav="requests">Весь реестр</button></div>
     <div class="tw">${risk.length?`<table><thead><tr>
       <th>№</th><th>Организация</th><th>Приоритет</th><th>Статус</th><th>Остаток по SLA</th><th>Исполнитель</th></tr></thead><tbody>
       ${risk.map((x,i)=>`<tr data-key="${esc(x.id)}" style="animation-delay:${i*.04}s">
-        <td><b>${esc(x.no)}</b></td><td class="ell">${esc(x.organization)}</td>
-        <td>${bg(x.priority)}</td><td>${bg(x.status)}</td>
+        <td class="no">${esc(x.no)}</td><td class="ell">${esc(x.organization)}</td>
+        <td>${pri(x.priority)}</td><td>${bg(x.status)}</td>
         <td>${timerCell(x)}</td><td>${esc(x.executor)}</td></tr>`).join('')}
       </tbody></table>`:'<div class="empty">Открытых заявок нет.</div>'}</div>
   </div>`;
   document.querySelectorAll('[data-count]').forEach(el=>countUp(el,+el.dataset.count||0));
   renderDrawer(risk[0]||S.requests[0]);
 }
-function kpi(label,val,desc,cls,i){
-  return `<div class="panel card kpi ${cls} anim" style="animation-delay:${i*.05}s">
-    <div class="eyebrow">${esc(label)}</div>
-    <b class="num" data-count="${Number(val)||0}">0</b><div class="d">${esc(desc)}</div></div>`;
-}
+const kpi=(label,val,desc,cls,i)=>`<div class="panel card kpi ${cls} anim" style="animation-delay:${i*.05}s">
+  <div class="eyebrow">${esc(label)}</div><b class="num" data-count="${Number(val)||0}">0</b>
+  <div class="d">${esc(desc)}</div></div>`;
 
 /*═════ ЗАЯВКИ ═════*/
 function filtered(){
@@ -743,6 +808,7 @@ function filtered(){
     if(f.exec&&r.executorId!==f.exec)return false;
     if(f.risk==='over'&&!overdue(r))return false;
     if(f.risk==='soon'){const l=deadline(r)-Date.now();if(isClosed(r)||l<0||l>CFG.WARN_HOURS*H)return false;}
+    if(f.risk==='open'&&isClosed(r))return false;
     if(q&&![r.no,r.organization,r.inn,r.phone,r.contact,r.executor,r.comment,r.employee,r.rnm,r.zn,r.fn]
       .join(' ').toLowerCase().includes(q))return false;
     return true;});
@@ -753,19 +819,23 @@ function renderRequests(){
   <div class="panel card anim">
     <div class="head">
       <div><b>Реестр заявок</b>
-        <div class="mini" style="margin-top:3px">Показано ${rows.length} из ${S.requests.length} · заявки поступают автоматически из веб-формы</div></div>
-      <button class="btn" data-act="csv">Экспорт CSV</button>
+        <div class="mini" style="margin-top:3px">Показано ${rows.length} из ${S.requests.length} · новые поступают автоматически из веб-формы</div></div>
+      <div class="mini">SLA ${CFG.SLA_HOURS} ч · предупреждение за ${CFG.WARN_HOURS} ч</div>
     </div>
     <div class="filters">
+      <div class="seg">
+        <button data-act="all" class="${f.risk===''?'on':''}">Все</button>
+        <button data-act="open" class="${f.risk==='open'?'on':''}">Открытые</button>
+        <button data-act="soon" class="${f.risk==='soon'?'on':''}">Истекает</button>
+        <button data-act="over" class="${f.risk==='over'?'on':''}">Просрочено</button>
+      </div>
       <select data-f="status"><option value="">Все статусы</option>
         ${['Новая','В работе','Ожидание','Выполнено','Отменено'].map(s=>`<option ${f.status===s?'selected':''}>${s}</option>`).join('')}</select>
       <select data-f="priority"><option value="">Любой приоритет</option>
         ${['Низкий','Средний','Высокий','Критический'].map(s=>`<option ${f.priority===s?'selected':''}>${s}</option>`).join('')}</select>
       <select data-f="exec"><option value="">Все исполнители</option>
         ${S.execs.map(e=>`<option value="${esc(e.id)}" ${f.exec===e.id?'selected':''}>${esc(e.name)}</option>`).join('')}</select>
-      <button class="chip ${f.risk==='soon'?'on':''}" data-act="soon">Истекает &lt; ${CFG.WARN_HOURS} ч</button>
-      <button class="chip ${f.risk==='over'?'on':''}" data-act="over">Просрочено</button>
-      <button class="chip" data-act="clear">Сбросить</button>
+      <button class="act" data-act="clear">Сбросить</button>
     </div>
     <div class="tw">${reqTable(rows)}</div>
   </div>`;
@@ -777,20 +847,22 @@ function reqTable(rows){
     <th>№</th><th>Поступила</th><th>Организация</th><th>Приоритет</th><th>Статус</th>
     <th>Остаток по SLA</th><th>Исполнитель</th><th>Комментарий</th><th></th></tr></thead><tbody>
   ${rows.map((x,i)=>`<tr data-key="${esc(x.id)}" class="${S.selected===x.id?'sel':''}" style="animation-delay:${Math.min(i*.025,.35)}s">
-    <td><b>${esc(x.no)}</b></td><td class="num">${fmt(x.ts)}</td>
+    <td class="no">${esc(x.no)}</td><td class="num">${fmt(x.ts)}</td>
     <td class="ell" title="${esc(x.organization)}">${esc(x.organization)}</td>
-    <td>${bg(x.priority)}</td><td>${bg(x.status)}</td>
-    <td>${timerCell(x)}</td>
-    <td>${esc(x.executor||'—')}</td>
+    <td>${pri(x.priority)}</td><td>${bg(x.status)}</td>
+    <td>${timerCell(x)}</td><td>${esc(x.executor||'—')}</td>
     <td class="ell" title="${esc(x.comment||'')}">${esc(x.comment||'')}</td>
     <td><button class="act" data-open="${esc(x.id)}">Открыть</button></td></tr>`).join('')}
   </tbody></table>`;
 }
 function bg(v){
   const m={'Новая':'n','В работе':'w','Ожидание':'h','Выполнено':'d','Отменено':'x',
-   'Критический':'x','Высокий':'h','Средний':'w','Низкий':'d',
    'Активна':'d','Отключена':'o','Активен':'d','Отключён':'o','ADMIN':'w','ORG':'n','EXECUTOR':'d'};
   return `<span class="bg ${m[v]||''}">${esc(v||'—')}</span>`;
+}
+function pri(v){
+  const lv={'Низкий':1,'Средний':2,'Высокий':3,'Критический':4}[v]||2;
+  return `<span class="pri p${lv}"><i>${[1,2,3,4].map(k=>`<s class="${k<=lv?'on':''}"></s>`).join('')}</i>${esc(v||'—')}</span>`;
 }
 
 /*═════ СПРАВОЧНИКИ ═════*/
@@ -805,24 +877,25 @@ function renderOrgs(){
       ${rows.map((o,i)=>`<tr style="animation-delay:${i*.03}s"><td><b>${esc(o.name)}</b></td><td class="num">${esc(o.inn||'—')}</td>
         <td>${esc(o.contact||'—')}</td><td class="num">${esc(o.phone||'—')}</td><td>${esc(o.email||'—')}</td>
         <td class="num">${S.requests.filter(r=>r.orgId===o.id).length}</td><td>${bg(o.active?'Активна':'Отключена')}</td>
-        <td style="display:flex;gap:5px"><button class="act" data-org-edit="${esc(o.id)}">Изменить</button>
+        <td><div class="acts"><button class="act" data-org-edit="${esc(o.id)}">Изменить</button>
         <button class="act" data-org-req="${esc(o.id)}">Заявки</button>
         <button class="act" data-org-tog="${esc(o.id)}">${o.active?'Отключить':'Включить'}</button>
-        <button class="act bad" data-org-del="${esc(o.id)}">Удалить</button></td></tr>`).join('')}
+        <button class="act bad" data-org-del="${esc(o.id)}">Удалить</button></div></td></tr>`).join('')}
       </tbody></table>`:'<div class="empty">Организаций нет.</div>'}</div></div>`;
 }
 function renderExecs(){
   $('content').innerHTML=`<div class="panel card anim">
-    <div class="head"><b>Исполнители</b><button class="btn solid" data-act="ex-new">Добавить</button></div>
+    <div class="head"><div><b>Исполнители</b><div class="mini" style="margin-top:3px">Сервисные центры и текущая загрузка</div></div>
+      <button class="btn solid" data-act="ex-new">Добавить</button></div>
     <div class="tw">${S.execs.length?`<table><thead><tr>
       <th>Наименование</th><th>Телефон</th><th>E-mail</th><th>В работе</th><th>Просрочено</th><th>Статус</th><th></th></tr></thead><tbody>
       ${S.execs.map((e,i)=>{const mine=S.requests.filter(r=>r.executorId===e.id);
         return `<tr style="animation-delay:${i*.04}s"><td><b>${esc(e.name)}</b></td><td class="num">${esc(e.phone||'—')}</td>
         <td>${esc(e.email||'—')}</td><td class="num">${mine.filter(r=>!isClosed(r)).length}</td>
         <td class="num">${mine.filter(r=>overdue(r)).length}</td><td>${bg(e.active?'Активен':'Отключён')}</td>
-        <td style="display:flex;gap:5px"><button class="act" data-ex-edit="${esc(e.id)}">Изменить</button>
+        <td><div class="acts"><button class="act" data-ex-edit="${esc(e.id)}">Изменить</button>
         <button class="act" data-ex-tog="${esc(e.id)}">${e.active?'Отключить':'Включить'}</button>
-        <button class="act bad" data-ex-del="${esc(e.id)}">Удалить</button></td></tr>`;}).join('')}
+        <button class="act bad" data-ex-del="${esc(e.id)}">Удалить</button></div></td></tr>`;}).join('')}
       </tbody></table>`:'<div class="empty">Исполнителей нет.</div>'}</div></div>`;
 }
 function renderUsers(){
@@ -833,16 +906,17 @@ function renderUsers(){
       <th>Логин</th><th>Имя</th><th>Роль</th><th>Организация</th><th>Статус</th><th></th></tr></thead><tbody>
       ${S.users.map((u,i)=>`<tr style="animation-delay:${i*.04}s"><td><b>${esc(u.login)}</b></td><td>${esc(u.name)}</td>
         <td>${bg(u.role)}</td><td>${esc(u.organization||'—')}</td><td>${bg(u.active?'Активна':'Отключена')}</td>
-        <td style="display:flex;gap:5px"><button class="act" data-us-edit="${esc(u.id)}">Изменить</button>
+        <td><div class="acts"><button class="act" data-us-edit="${esc(u.id)}">Изменить</button>
         <button class="act" data-us-tog="${esc(u.id)}">${u.active?'Отключить':'Включить'}</button>
-        <button class="act bad" data-us-del="${esc(u.id)}">Удалить</button></td></tr>`).join('')}
+        <button class="act bad" data-us-del="${esc(u.id)}">Удалить</button></div></td></tr>`).join('')}
       </tbody></table>`:'<div class="empty">Пользователей нет.</div>'}</div></div>`;
 }
 function renderLog(){
   const q=S.filters.q.toLowerCase();
   const rows=S.log.filter(l=>!q||[l.login,l.action,l.entity,l.details].join(' ').toLowerCase().includes(q));
   $('content').innerHTML=`<div class="panel card anim">
-    <div class="head"><b>Журнал действий</b><span class="mini">${rows.length} записей</span></div>
+    <div class="head"><div><b>Журнал действий</b><div class="mini" style="margin-top:3px">Кто, что и когда изменил</div></div>
+      <span class="mini">${rows.length} записей</span></div>
     <div class="tw">${rows.length?`<table><thead><tr>
       <th>Время</th><th>Пользователь</th><th>Действие</th><th>Объект</th><th>Детали</th></tr></thead><tbody>
       ${rows.map((l,i)=>`<tr style="animation-delay:${Math.min(i*.02,.35)}s"><td class="num">${fmt(l.ts)}</td>
@@ -854,7 +928,8 @@ function renderSettings(){
   const s=S.settings;
   $('content').innerHTML=`<div class="fgrid">
     <div class="panel card anim">
-      <div class="head"><b>Сроки и уведомления</b></div><div class="rule"></div>
+      <div class="head"><div><b>Сроки и уведомления</b><div class="mini" style="margin-top:3px">Параметры контроля SLA</div></div></div>
+      <div class="rule"></div>
       <form id="setForm">
         <div class="field"><label>SLA, часов на выполнение</label><input name="slaHours" type="number" min="1" value="${esc(s.slaHours||60)}"></div>
         <div class="field"><label>Предупреждать за, часов</label><input name="warnHours" type="number" min="1" value="${esc(s.warnHours||6)}"></div>
@@ -868,16 +943,16 @@ function renderSettings(){
       </form>
     </div>
     <div class="panel card anim" style="animation-delay:.07s">
-      <div class="head"><b>Подключение</b></div><div class="rule"></div>
+      <div class="head"><div><b>Подключение</b><div class="mini" style="margin-top:3px">Состояние канала приёма заявок</div></div></div>
+      <div class="rule"></div>
       <div class="row"><span>Режим</span><b>${LIVE?'Рабочий (Apps Script)':'Автономный'}</b></div>
       <div class="row"><span>Адрес</span><b style="font-size:11px">${esc(CFG.API||'не задан')}</b></div>
       <div class="row"><span>SLA</span><b>${CFG.SLA_HOURS} ч</b></div>
       <div class="row"><span>Предупреждение</span><b>${CFG.WARN_HOURS} ч</b></div>
       <div class="row"><span>Версия</span><b>${esc(s.version||'—')}</b></div>
-      <div class="dacts">
-        <button class="btn" data-act="ping">Проверить соединение</button>
+      <div class="dacts"><button class="btn" data-act="ping">Проверить соединение</button>
         <button class="btn" data-act="mail">Тестовое письмо</button></div>
-      <div class="note">Приём заявок с сайта выполняется действием <b>intake</b> без авторизации. Сетевой запрос отправляется только на адрес вида <b>script.google.com/macros/s/.../exec</b>, поэтому обращения к статическому хостингу исключены.</div>
+      <div class="note">Приём заявок с сайта выполняется действием <b>intake</b> без авторизации. Запрос уходит только на адрес вида <b>script.google.com/macros/s/.../exec</b>.</div>
     </div></div>`;
   $('setForm').addEventListener('submit',async ev=>{
     ev.preventDefault();
@@ -888,29 +963,38 @@ function renderSettings(){
     catch(e){$('setErr').textContent=e.message;}});
 }
 
-/*═════ DRAWER ═════*/
+/*═════ КАРТОЧКА ═════*/
 function renderDrawer(x){
   if(!x){$('drawer').innerHTML='<div class="eyebrow">Карточка</div><h3>Заявка не выбрана</h3><div class="muted">Выберите строку в таблице.</div>';return;}
   $('drawer').dataset.key=x.id;
   const L=(a,b)=>`<div class="row"><span>${a}</span><b>${b}</b></div>`;
-  const st=new Date(x.ts).getTime(),dl=deadline(x);
-  const slaBox=isClosed(x)
-    ? (()=>{const d=new Date(x.doneAt||x.updatedAt||x.ts).getTime(),sp=d-st,ok=sp<=CFG.SLA_HOURS*H;
+  const st=new Date(x.ts).getTime(),dl=deadline(x),closed=isClosed(x);
+  const sla=closed
+    ? (()=>{const sp=new Date(x.doneAt||x.updatedAt||x.ts).getTime()-st,ok=sp<=CFG.SLA_HOURS*H;
         return `<div class="sla-box"><div class="eyebrow">Заявка закрыта</div>
           <div class="big ${ok?'ok':'bad'}">${durShort(sp)}</div>
-          <div class="track"><i class="${ok?'ok':'bad'}" style="width:${Math.min(100,sp/(CFG.SLA_HOURS*H)*100)}%"></i></div>
+          <div class="track wide"><i class="${ok?'ok':'bad'}" style="width:${Math.min(100,sp/(CFG.SLA_HOURS*H)*100)}%"></i></div>
           <div class="sla-meta"><span>Принята ${fmt(x.ts)}</span><span>${ok?'В срок':'С нарушением SLA'}</span></div></div>`;})()
     : `<div class="sla-box"><div class="eyebrow">Остаток времени на выполнение</div>
         <div class="big" data-dl="${dl}" data-st="${st}">—</div>
-        <div class="track"><i data-role="fill" data-dl="${dl}" data-st="${st}" style="width:0"></i></div>
+        <div class="track wide"><i data-role="fill" data-dl="${dl}" data-st="${st}" style="width:0"></i></div>
         <div class="sla-meta"><span>Принята ${fmt(x.ts)}</span><span>Крайний срок ${fmt(dl)}</span></div></div>`;
+  const steps=[
+    {t:'Заявка поступила',d:fmt(x.ts)+' · '+(x.source||'веб-форма'),on:true},
+    {t:'Исполнитель назначен',d:x.executorId?x.executor:'ожидает назначения',on:!!x.executorId},
+    {t:'В работе',d:x.status==='В работе'?'выполняется':(closed?'пройден':'не начата'),on:x.status==='В работе'||closed},
+    {t:closed?(x.status==='Отменено'?'Отменена':'Выполнена'):'Закрытие',
+     d:closed?fmt(x.doneAt||x.updatedAt||x.ts):'до '+fmt(dl),on:closed}];
+  const cur=steps.filter(s=>s.on).length-1;
   $('drawer').innerHTML=`
    <div class="eyebrow">Заявка</div>
    <h3>№ ${esc(x.no)}</h3>
-   <div class="muted">${esc(x.organization)} · источник: ${esc(x.source||'веб-форма')}</div>
-   ${slaBox}
+   <div class="muted">${esc(x.organization)}</div>
+   ${sla}
+   <div class="sect">Жизненный цикл</div>
+   <div class="tl">${steps.map((s,i)=>`<div class="st ${s.on?'on':''} ${i===cur&&!closed?'now':''}">${esc(s.t)}<em>${esc(s.d)}</em></div>`).join('')}</div>
    <div class="sect">Основное</div>
-   ${L('Приоритет',bg(x.priority))}${L('Статус',bg(x.status))}
+   ${L('Приоритет',pri(x.priority))}${L('Статус',bg(x.status))}
    ${L('Передал',esc(x.employee||'—'))}${L('Исполнитель',esc(x.executor||'—'))}
    ${L('Комментарий',esc(x.comment||'—'))}
    <div class="sect">Организация</div>
@@ -940,7 +1024,7 @@ $('drawer').addEventListener('click',async e=>{
     try{await call('deleteRequest',{id:item.id});toast('Заявка удалена','ok');go(S.page);}catch(er){toast(er.message);}}
 });
 
-/*═════ СОБЫТИЯ КОНТЕНТА ═════*/
+/*═════ СОБЫТИЯ ═════*/
 $('content').addEventListener('change',e=>{
   const f=e.target.closest('[data-f]');if(!f)return;
   S.filters[f.dataset.f]=f.value;renderRequests();tick();});
@@ -949,10 +1033,8 @@ $('content').addEventListener('click',async e=>{
   const nav=t.closest('[data-nav]');if(nav)return go(nav.dataset.nav);
   const act=t.closest('[data-act]');
   if(act){const a=act.dataset.act;
-    if(a==='soon'){S.filters.risk=S.filters.risk==='soon'?'':'soon';return (renderRequests(),tick());}
-    if(a==='over'){S.filters.risk=S.filters.risk==='over'?'':'over';return (renderRequests(),tick());}
-    if(a==='clear'){S.filters={status:'',priority:'',exec:'',risk:'',q:''};$('search').value='';return (renderRequests(),tick());}
-    if(a==='csv')return exportCSV();
+    if(['all','open','soon','over'].includes(a)){S.filters.risk=a==='all'?'':a;renderRequests();tick();return;}
+    if(a==='clear'){S.filters={status:'',priority:'',exec:'',risk:'',q:''};$('search').value='';renderRequests();tick();return;}
     if(a==='org-new')return openOrg(null);
     if(a==='ex-new')return openExec(null);
     if(a==='user-new')return openUser(null);
@@ -978,12 +1060,12 @@ $('content').addEventListener('click',async e=>{
   S.selected=key;
   document.querySelectorAll('tr[data-key]').forEach(el=>el.classList.toggle('sel',el.dataset.key===key));
   renderDrawer(item);
-  if(ob&&window.innerWidth<=1300)openRequest(item);
+  if(ob&&window.innerWidth<=1320)openRequest(item);
 });
 
 /*═════ МОДАЛКИ ═════*/
-function modal(h){$('modal').classList.remove('hidden');$('modal').innerHTML=h;}
-function closeModal(){$('modal').classList.add('hidden');$('modal').innerHTML='';}
+const modal=h=>{$('modal').classList.remove('hidden');$('modal').innerHTML=h;};
+const closeModal=()=>{$('modal').classList.add('hidden');$('modal').innerHTML='';};
 $('modal').addEventListener('click',e=>{
   if(e.target===$('modal'))return closeModal();
   if(e.target.closest('[data-m="close"]'))closeModal();});
@@ -991,13 +1073,13 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('modal').classLi
 const opt=(a,c)=>a.map(v=>`<option ${v===c?'selected':''}>${esc(v)}</option>`).join('');
 const optId=(a,c)=>`<option value="">— не выбрано —</option>`+a.map(v=>`<option value="${esc(v.id)}" ${v.id===c?'selected':''}>${esc(v.name)}</option>`).join('');
 const closeX='<button class="ico" data-m="close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>';
+const mh=(kick,title)=>`<div class="mhead"><div><div class="eyebrow">${kick}</div><h3>${title}</h3></div>${closeX}</div>`;
 
 function openRequest(x){
   const e=x||{},adm=isAdmin();
-  modal(`<div class="panel mcard">
-   <div class="mhead"><div><div class="eyebrow">Редактирование</div><h3>Заявка № ${esc(e.no)}</h3></div>${closeX}</div>
-   <div class="rule"></div>
-   <form id="rForm"><input type="hidden" name="id" value="${esc(e.id||'')}">
+  modal(`<div class="panel mcard"><form id="rForm">
+   ${mh('Редактирование','Заявка № '+esc(e.no))}
+   <div class="mbody"><input type="hidden" name="id" value="${esc(e.id||'')}">
    <div class="fgrid">
      <div class="field"><label>Поступила</label><input value="${fmt(e.ts)}" disabled></div>
      <div class="field"><label>Источник</label><input value="${esc(e.source||'Веб-форма')}" disabled></div>
@@ -1021,8 +1103,7 @@ function openRequest(x){
      <div class="field"><label>КЭП</label><select name="kep">${opt(['Нет','Да'],e.kep||'Нет')}</select></div>
      <div class="field"><label>Wi-Fi</label><select name="wifi">${opt(['Нет','Да'],e.wifi||'Нет')}</select></div>
      <div class="field full"><label>Комментарий</label><textarea name="comment">${esc(e.comment||'')}</textarea></div>
-   </div>
-   <div class="err" id="rErr"></div>
+   </div><div class="err" id="rErr"></div></div>
    <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
      <button class="btn solid" type="submit" id="rSub">Сохранить</button></div></form></div>`);
   $('rForm').addEventListener('submit',async ev=>{
@@ -1034,37 +1115,37 @@ function openRequest(x){
     finally{if($('rSub')){$('rSub').disabled=false;$('rSub').textContent='Сохранить';}}});
 }
 function openStatus(x){
-  modal(`<div class="panel mcard" style="width:min(520px,100%)">
-   <div class="mhead"><div><div class="eyebrow">Статус</div><h3>Заявка № ${esc(x.no)}</h3></div>${closeX}</div><div class="rule"></div>
-   <form id="sForm">
+  modal(`<div class="panel mcard" style="width:min(520px,100%)"><form id="sForm">
+   ${mh('Статус','Заявка № '+esc(x.no))}
+   <div class="mbody">
      <div class="field"><label>Новый статус</label><select name="status">${opt(['Новая','В работе','Ожидание','Выполнено','Отменено'],x.status)}</select></div>
      <div class="field"><label>Комментарий</label><textarea name="comment">${esc(x.comment||'')}</textarea></div>
-     <div class="note">При переводе в «Выполнено» или «Отменено» таймер SLA останавливается и фиксируется фактическое время выполнения.</div>
-     <div class="err" id="sErr"></div>
-     <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
-       <button class="btn solid" type="submit">Применить</button></div></form></div>`);
+     <div class="note">При переводе в «Выполнено» или «Отменено» таймер SLA останавливается, фиксируется фактическое время выполнения.</div>
+     <div class="err" id="sErr"></div></div>
+   <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
+     <button class="btn solid" type="submit">Применить</button></div></form></div>`);
   $('sForm').addEventListener('submit',async ev=>{ev.preventDefault();
     const p=Object.fromEntries(new FormData(ev.target).entries());p.id=x.id;
     try{await call('setStatus',p);closeModal();toast('Статус обновлён','ok');go(S.page);}catch(er){$('sErr').textContent=er.message;}});
 }
 function openTransfer(x){
-  modal(`<div class="panel mcard" style="width:min(520px,100%)">
-   <div class="mhead"><div><div class="eyebrow">Передача</div><h3>Заявка № ${esc(x.no)}</h3></div>${closeX}</div><div class="rule"></div>
-   <form id="tForm">
+  modal(`<div class="panel mcard" style="width:min(520px,100%)"><form id="tForm">
+   ${mh('Передача','Заявка № '+esc(x.no))}
+   <div class="mbody">
      <div class="field"><label>Исполнитель</label><select name="executorId">${optId(S.execs.filter(e=>e.active),x.executorId)}</select></div>
      <div class="field"><label>Организация</label><select name="orgId">${optId(S.orgs,x.orgId)}</select></div>
-     <div class="note">Передача фиксируется в журнале действий. Отсчёт SLA не перезапускается — срок считается от момента поступления заявки.</div>
-     <div class="err" id="tErr"></div>
-     <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
-       <button class="btn solid" type="submit">Передать</button></div></form></div>`);
+     <div class="note">Передача фиксируется в журнале. Отсчёт SLA не перезапускается — срок считается от момента поступления.</div>
+     <div class="err" id="tErr"></div></div>
+   <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
+     <button class="btn solid" type="submit">Передать</button></div></form></div>`);
   $('tForm').addEventListener('submit',async ev=>{ev.preventDefault();
     const p=Object.fromEntries(new FormData(ev.target).entries());p.id=x.id;
     try{await call('transfer',p);closeModal();toast('Заявка передана','ok');go(S.page);}catch(er){$('tErr').textContent=er.message;}});
 }
 function openOrg(o){o=o||{};
-  modal(`<div class="panel mcard" style="width:min(600px,100%)">
-   <div class="mhead"><div><div class="eyebrow">Справочник</div><h3>${o.id?'Организация':'Новая организация'}</h3></div>${closeX}</div><div class="rule"></div>
-   <form id="oForm"><input type="hidden" name="id" value="${esc(o.id||'')}">
+  modal(`<div class="panel mcard" style="width:min(620px,100%)"><form id="oForm">
+   ${mh('Справочник',o.id?'Организация':'Новая организация')}
+   <div class="mbody"><input type="hidden" name="id" value="${esc(o.id||'')}">
      <div class="fgrid">
        <div class="field full"><label>Наименование</label><input name="name" required value="${esc(o.name||'')}"></div>
        <div class="field"><label>ИНН</label><input name="inn" value="${esc(o.inn||'')}"></div>
@@ -1072,32 +1153,32 @@ function openOrg(o){o=o||{};
        <div class="field"><label>Телефон</label><input name="phone" value="${esc(o.phone||'')}"></div>
        <div class="field"><label>E-mail</label><input name="email" type="email" value="${esc(o.email||'')}"></div>
        <div class="field full"><label>Статус</label><select name="active"><option value="1" ${o.active!==false?'selected':''}>Активна</option><option value="" ${o.active===false?'selected':''}>Отключена</option></select></div>
-     </div><div class="err" id="oErr"></div>
-     <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
-       <button class="btn solid" type="submit">Сохранить</button></div></form></div>`);
+     </div><div class="err" id="oErr"></div></div>
+   <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
+     <button class="btn solid" type="submit">Сохранить</button></div></form></div>`);
   $('oForm').addEventListener('submit',async ev=>{ev.preventDefault();
     const p=Object.fromEntries(new FormData(ev.target).entries());p.active=!!p.active;
     try{await call('saveOrg',p);closeModal();toast('Сохранено','ok');go('orgs');}catch(er){$('oErr').textContent=er.message;}});
 }
 function openExec(x){x=x||{};
-  modal(`<div class="panel mcard" style="width:min(520px,100%)">
-   <div class="mhead"><div><div class="eyebrow">Справочник</div><h3>${x.id?'Исполнитель':'Новый исполнитель'}</h3></div>${closeX}</div><div class="rule"></div>
-   <form id="eForm"><input type="hidden" name="id" value="${esc(x.id||'')}">
+  modal(`<div class="panel mcard" style="width:min(520px,100%)"><form id="eForm">
+   ${mh('Справочник',x.id?'Исполнитель':'Новый исполнитель')}
+   <div class="mbody"><input type="hidden" name="id" value="${esc(x.id||'')}">
      <div class="field"><label>Наименование</label><input name="name" required value="${esc(x.name||'')}"></div>
      <div class="field"><label>Телефон</label><input name="phone" value="${esc(x.phone||'')}"></div>
      <div class="field"><label>E-mail</label><input name="email" type="email" value="${esc(x.email||'')}"></div>
      <div class="field"><label>Статус</label><select name="active"><option value="1" ${x.active!==false?'selected':''}>Активен</option><option value="" ${x.active===false?'selected':''}>Отключён</option></select></div>
-     <div class="err" id="eErr"></div>
-     <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
-       <button class="btn solid" type="submit">Сохранить</button></div></form></div>`);
+     <div class="err" id="eErr"></div></div>
+   <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
+     <button class="btn solid" type="submit">Сохранить</button></div></form></div>`);
   $('eForm').addEventListener('submit',async ev=>{ev.preventDefault();
     const p=Object.fromEntries(new FormData(ev.target).entries());p.active=!!p.active;
     try{await call('saveExec',p);closeModal();toast('Сохранено','ok');go('execs');}catch(er){$('eErr').textContent=er.message;}});
 }
 function openUser(u){u=u||{};
-  modal(`<div class="panel mcard" style="width:min(600px,100%)">
-   <div class="mhead"><div><div class="eyebrow">Доступ</div><h3>${u.id?'Пользователь':'Новый пользователь'}</h3></div>${closeX}</div><div class="rule"></div>
-   <form id="uForm"><input type="hidden" name="id" value="${esc(u.id||'')}">
+  modal(`<div class="panel mcard" style="width:min(620px,100%)"><form id="uForm">
+   ${mh('Доступ',u.id?'Пользователь':'Новый пользователь')}
+   <div class="mbody"><input type="hidden" name="id" value="${esc(u.id||'')}">
      <div class="fgrid">
        <div class="field"><label>Логин</label><input name="login" required ${u.id?'readonly':''} value="${esc(u.login||'')}"></div>
        <div class="field"><label>Пароль ${u.id?'(пусто — не менять)':''}</label><input name="pass" ${u.id?'':'required'}></div>
@@ -1106,28 +1187,12 @@ function openUser(u){u=u||{};
        <div class="field"><label>Организация (ORG)</label><select name="orgId">${optId(S.orgs,u.orgId)}</select></div>
        <div class="field"><label>Исполнитель (EXECUTOR)</label><select name="execId">${optId(S.execs,u.execId)}</select></div>
        <div class="field full"><label>Статус</label><select name="active"><option value="1" ${u.active!==false?'selected':''}>Активна</option><option value="" ${u.active===false?'selected':''}>Отключена</option></select></div>
-     </div><div class="err" id="uErr"></div>
-     <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
-       <button class="btn solid" type="submit">Сохранить</button></div></form></div>`);
+     </div><div class="err" id="uErr"></div></div>
+   <div class="macts"><button class="btn" type="button" data-m="close">Отмена</button>
+     <button class="btn solid" type="submit">Сохранить</button></div></form></div>`);
   $('uForm').addEventListener('submit',async ev=>{ev.preventDefault();
     const p=Object.fromEntries(new FormData(ev.target).entries());p.active=!!p.active;
     try{await call('saveUser',p);closeModal();toast('Сохранено','ok');go('users');}catch(er){$('uErr').textContent=er.message;}});
-}
-
-/*═════ ЭКСПОРТ ═════*/
-function exportCSV(){
-  const rows=filtered();
-  const cols=['no','ts','source','employee','priority','status','executor','organization','inn','contact','phone','email',
-    'kktCount','rnm','zn','fn','model','needTrip','tripAddress','esp','kep','wifi','comment'];
-  const head=cols.concat(['остаток_SLA']).join(';');
-  const body=rows.map(r=>{
-    const left=deadline(r)-Date.now();
-    const sla=isClosed(r)?'закрыта':(left>=0?dur(left):'просрочено '+dur(-left));
-    return cols.map(c=>'"'+String((c==='ts'?fmt(r.ts):r[c])??'').replace(/"/g,'""')+'"').join(';')+';"'+sla+'"';});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob(['\ufeff'+[head].concat(body).join('\n')],{type:'text/csv;charset=utf-8'}));
-  a.download='requests_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
-  toast('Выгружено строк: '+rows.length,'ok');
 }
 
 /*═════ ШАПКА ═════*/
@@ -1142,7 +1207,7 @@ $('reloadBtn').addEventListener('click',e=>{const b=e.currentTarget;b.classList.
   setTimeout(()=>b.classList.remove('rot'),700);go(S.page);});
 $('logoutBtn').addEventListener('click',logout);
 
-/*═════ АВТОПРИЁМ ЗАЯВОК ═════*/
+/*═════ АВТОПРИЁМ ═════*/
 if(!LIVE&&CFG.SIMULATE_INTAKE){
   setInterval(()=>{
     if(!S.me)return;
@@ -1151,14 +1216,19 @@ if(!LIVE&&CFG.SIMULATE_INTAKE){
     if(!S.busy&&$('modal').classList.contains('hidden')&&['dashboard','requests'].includes(S.page))go(S.page);
   },CFG.INTAKE_EVERY);
 }
-if(LIVE){ setInterval(()=>{ if(S.me&&!S.busy&&$('modal').classList.contains('hidden')&&
-  ['dashboard','requests'].includes(S.page)) go(S.page); },90000); }
+if(LIVE){setInterval(()=>{if(S.me&&!S.busy&&$('modal').classList.contains('hidden')&&
+  ['dashboard','requests'].includes(S.page))go(S.page);},90000);}
 
 /*═════ СТАРТ ═════*/
-if(!LIVE){const f=document.createElement('div');f.className='flag';
-  f.textContent='Автономный режим';document.body.appendChild(f);}
 (async()=>{ if(!S.token)return;
   try{S.me={};showApp();await go('dashboard');}catch{forceLogout();} })();
 </script>
 </body>
 </html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
