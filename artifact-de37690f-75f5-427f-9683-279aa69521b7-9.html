@@ -1,0 +1,1347 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LIFE PAY — CRM</title>
+<style>
+:root{
+  --bg:#edf6ff;--bg2:#f8fbff;--panel:rgba(255,255,255,.72);--panel2:rgba(255,255,255,.52);
+  --text:#0b1930;--muted:#60708b;--line:rgba(32,105,175,.16);--blue:#118dff;--cyan:#16d7ff;
+  --purple:#7047ff;--green:#16c99a;--red:#ff5570;--yellow:#f2b72f;
+  --shadow:0 18px 60px rgba(20,91,155,.15);
+  --sidebar:rgba(255,255,255,.58);--table:rgba(255,255,255,.56);--input:rgba(255,255,255,.75);
+}
+html[data-theme=dark]{
+  --bg:#061326;--bg2:#091b34;--panel:rgba(15,35,65,.72);--panel2:rgba(12,30,56,.55);
+  --text:#f4f9ff;--muted:#9bb0cc;--line:rgba(135,205,255,.17);
+  --shadow:0 22px 70px rgba(0,0,0,.34);
+  --sidebar:rgba(7,24,47,.72);--table:rgba(7,24,47,.58);--input:rgba(7,24,47,.66);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);
+  background:
+    radial-gradient(circle at 10% 15%,rgba(0,176,255,.18),transparent 28%),
+    radial-gradient(circle at 80% 5%,rgba(88,70,255,.17),transparent 25%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+  min-height:100vh
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.glass{
+  background:var(--panel);border:1px solid var(--line);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:var(--shadow)
+}
+
+/* ── Логотип ── */
+.logo{width:142px;height:auto;display:block;margin-bottom:24px;color:#0b1930}
+.logo svg{width:100%;height:auto;display:block}
+html[data-theme=dark] .logo{color:#ffffff}
+.side-logo .logo{margin:0}
+
+/* ── Логин ── */
+#login{
+  min-height:100vh;display:grid;place-items:center;
+  padding:30px;position:relative;overflow:hidden
+}
+#login:before{
+  content:"";position:absolute;width:800px;height:800px;
+  border-radius:50%;left:-330px;top:-330px;
+  background:radial-gradient(circle,rgba(0,160,255,.35),transparent 62%);
+  filter:blur(20px)
+}
+.login-card{width:min(470px,100%);padding:34px;border-radius:30px;position:relative;z-index:1}
+.login-card h1{font-size:34px;margin:0 0 8px}
+.login-card p{color:var(--muted);margin:0 0 28px;line-height:1.5}
+.field{display:grid;gap:8px;margin:16px 0}
+.field label{font-size:13px;color:var(--muted);font-weight:700}
+.field input,.field select,.field textarea{
+  width:100%;padding:14px 15px;border-radius:15px;
+  border:1px solid var(--line);background:var(--input);color:var(--text);outline:none
+}
+.field textarea{min-height:80px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--blue);box-shadow:0 0 0 4px rgba(17,141,255,.12)
+}
+.primary{
+  border:0;border-radius:15px;padding:14px 18px;color:#fff;font-weight:800;
+  background:linear-gradient(100deg,#087cff,#15bfff);
+  box-shadow:0 12px 28px rgba(0,126,255,.26)
+}
+.primary.block{width:100%}
+.primary[disabled]{opacity:.6;cursor:not-allowed}
+.error{min-height:22px;color:var(--red);font-size:13px;margin-top:12px}
+.theme-btn{
+  position:fixed;right:22px;top:20px;width:44px;height:44px;
+  border-radius:50%;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);z-index:5
+}
+
+/* ── Лейаут ── */
+#app{display:grid;grid-template-columns:230px 1fr 320px;min-height:100vh}
+.sidebar{
+  padding:20px 14px;background:var(--sidebar);
+  border-right:1px solid var(--line);backdrop-filter:blur(28px);
+  position:sticky;top:0;height:100vh
+}
+.side-logo{padding:10px 10px 25px}
+.nav{display:grid;gap:7px}
+.nav button{
+  border:1px solid transparent;background:transparent;color:var(--text);
+  padding:12px 14px;border-radius:14px;text-align:left;
+  font-weight:650;display:flex;align-items:center;gap:10px
+}
+.nav button:hover{background:rgba(17,141,255,.09)}
+.nav button.active{
+  background:linear-gradient(100deg,rgba(16,137,255,.95),rgba(22,198,255,.78));
+  color:#fff;box-shadow:0 10px 28px rgba(17,141,255,.25)
+}
+.userbox{
+  position:absolute;bottom:18px;left:14px;right:14px;padding:12px;
+  border-radius:16px;border:1px solid var(--line);
+  background:var(--panel2);display:flex;gap:10px;align-items:center
+}
+.avatar{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(145deg,#0c8cff,#3e53ff);color:#fff;
+  font-weight:800;flex:none
+}
+.userbox .small{font-size:12px;color:var(--muted);word-break:break-word}
+.userbox b{font-size:13px}
+
+/* ── Контент ── */
+.main{padding:22px 24px;min-width:0}
+.top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.top h2{margin:0;font-size:27px}
+.sub{font-size:13px;color:var(--muted);margin-top:3px}
+.search{
+  margin-left:auto;width:min(340px,35vw);border:1px solid var(--line);
+  background:var(--input);border-radius:14px;padding:11px 14px;
+  color:var(--text);outline:none
+}
+.search:focus{border-color:var(--blue)}
+.iconbtn{
+  width:42px;height:42px;border-radius:13px;
+  border:1px solid var(--line);background:var(--panel);
+  color:var(--text);flex:none
+}
+
+/* ── KPI ── */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{border-radius:22px;padding:19px;position:relative;overflow:hidden}
+.kpi:after{
+  content:"";position:absolute;width:100px;height:100px;
+  border-radius:50%;right:-35px;top:-40px;background:rgba(17,141,255,.13)
+}
+.kpi .muted{color:var(--muted);font-size:13px}
+.kpi b{display:block;font-size:34px;margin-top:8px}
+.trend{color:var(--green);font-size:12px;margin-top:3px}
+.trend.bad{color:var(--red)}
+
+/* ── Графики ── */
+.chartgrid{display:grid;grid-template-columns:1.35fr 1fr;gap:16px;margin-top:16px}
+.card{border-radius:22px;padding:18px}
+.cardhead{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;margin-bottom:10px
+}
+.cardhead b{font-size:15px}
+.mini{font-size:12px;color:var(--muted)}
+.chart{
+  height:180px;display:flex;align-items:end;gap:12px;
+  padding:15px 6px 4px;
+  background:linear-gradient(180deg,rgba(17,141,255,.05),transparent);
+  border-radius:16px
+}
+.bar{
+  flex:1;max-width:52px;border-radius:10px 10px 3px 3px;
+  background:linear-gradient(180deg,#19c8ff,#197dff);
+  box-shadow:0 8px 24px rgba(18,140,255,.2);transition:height .4s ease
+}
+.donutwrap{display:flex;align-items:center;gap:28px;height:180px}
+.donut{width:150px;height:150px;border-radius:50%;position:relative;flex:none}
+.donut:after{
+  content:"";position:absolute;inset:29px;border-radius:50%;
+  background:var(--bg2);box-shadow:inset 0 0 20px rgba(0,0,0,.12)
+}
+.donut b{
+  position:absolute;z-index:1;inset:0;
+  display:grid;place-items:center;font-size:23px
+}
+.legend{display:grid;gap:13px;font-size:13px}
+.legend span{display:flex;gap:9px;align-items:center}
+.dot{width:10px;height:10px;border-radius:50%;background:#13c8ff;flex:none}
+.dot.b{background:#187bff}.dot.p{background:#7047ff}
+
+/* ── Таблицы ── */
+.requests{margin-top:16px}
+.tablewrap{
+  overflow:auto;border-radius:16px;
+  border:1px solid var(--line);max-height:60vh
+}
+table{width:100%;border-collapse:collapse;background:var(--table);font-size:12px}
+th,td{
+  padding:12px 10px;border-bottom:1px solid var(--line);
+  text-align:left;white-space:nowrap
+}
+th{
+  color:var(--muted);font-weight:700;
+  background:rgba(120,180,255,.07);position:sticky;top:0;
+  z-index:1;backdrop-filter:blur(8px)
+}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:rgba(17,141,255,.055)}
+tbody tr.sel td{background:rgba(17,141,255,.11)}
+.ellipsis{max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.empty{padding:34px;text-align:center;color:var(--muted);font-size:13px}
+.skel{
+  height:14px;border-radius:7px;
+  background:linear-gradient(
+    90deg,
+    rgba(130,180,240,.16),
+    rgba(130,180,240,.34),
+    rgba(130,180,240,.16)
+  );
+  background-size:200% 100%;
+  animation:sk 1.1s linear infinite;margin:14px 0
+}
+@keyframes sk{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+
+/* ── Бейджи ── */
+.badge{
+  display:inline-flex;align-items:center;
+  border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800
+}
+.new{background:rgba(17,141,255,.16);color:#1986ff}
+.work{background:rgba(112,71,255,.16);color:#815eff}
+.done{background:rgba(22,201,154,.17);color:#0caa80}
+.fail{background:rgba(255,85,112,.16);color:#ef425e}
+.wait{background:rgba(242,183,47,.18);color:#bd8500}
+.critical{background:rgba(255,85,112,.16);color:#ef425e}
+.high{background:rgba(255,105,105,.16);color:#e64d5c}
+.medium{background:rgba(242,183,47,.18);color:#bd8500}
+.low{background:rgba(22,201,154,.14);color:#08956f}
+.overdue{color:#ef334f;font-weight:900;margin-left:6px}
+.action{
+  border:1px solid var(--line);background:transparent;
+  color:var(--text);border-radius:9px;padding:6px 10px;font-size:11px
+}
+.action:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── Drawer ── */
+.drawer{
+  border-left:1px solid var(--line);background:var(--sidebar);
+  backdrop-filter:blur(28px);padding:18px;
+  position:sticky;top:0;height:100vh;overflow:auto
+}
+.drawer h3{margin:2px 0 5px;font-size:20px}
+.drawer .muted{font-size:12px;color:var(--muted)}
+.detail{margin-top:20px}
+.detail-title{font-weight:800;font-size:12px;margin:17px 0 9px}
+.row{
+  display:grid;grid-template-columns:110px 1fr;
+  gap:8px;padding:5px 0;font-size:12px;align-items:start
+}
+.row span:first-child{color:var(--muted)}
+.row b{word-break:break-word;white-space:pre-wrap}
+.drawer-actions{display:grid;gap:8px;margin-top:18px}
+.drawer-actions button{
+  border-radius:12px;padding:11px;
+  border:1px solid var(--line);background:var(--panel);color:var(--text)
+}
+.drawer-actions .primary{color:#fff;border:0}
+
+/* ── Модалка ── */
+.modal{
+  position:fixed;inset:0;background:rgba(0,15,35,.48);
+  backdrop-filter:blur(10px);display:grid;place-items:center;
+  padding:20px;z-index:20
+}
+.modal-card{
+  width:min(820px,100%);max-height:90vh;
+  overflow:auto;border-radius:25px;padding:22px
+}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.full{grid-column:1/-1}
+.modal-head{display:flex;justify-content:space-between;align-items:center}
+.modal-head h3{margin:0}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.secondary{
+  border:1px solid var(--line);background:var(--panel);
+  color:var(--text);padding:12px 18px;border-radius:12px
+}
+.kkt-item{
+  border:1px dashed var(--line);border-radius:16px;
+  padding:12px;margin-bottom:10px
+}
+.kkt-head{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:6px;font-size:12px;color:var(--muted);font-weight:700
+}
+.linkbtn{background:none;border:0;color:var(--red);font-size:12px;font-weight:700}
+
+/* ── Тосты ── */
+#toasts{position:fixed;right:20px;bottom:20px;display:grid;gap:10px;z-index:60}
+.toast{
+  padding:13px 16px;border-radius:14px;font-size:13px;
+  max-width:340px;color:#fff;box-shadow:var(--shadow);
+  animation:tin .25s ease
+}
+.toast.err{background:linear-gradient(100deg,#ff4f6d,#ff7a5c)}
+.toast.ok{background:linear-gradient(100deg,#11b07f,#2ad0a5)}
+@keyframes tin{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
+}
+
+/* ── Таб-панель организаций/пользователей ── */
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{
+  border:1px solid var(--line);background:var(--panel2);
+  color:var(--muted);border-radius:10px;padding:8px 16px;
+  font-size:13px;font-weight:700
+}
+.tab.active{
+  background:linear-gradient(100deg,#087cff,#15bfff);
+  color:#fff;border-color:transparent
+}
+
+/* ── Адаптив ── */
+@media(max-width:1200px){
+  #app{grid-template-columns:210px 1fr}
+  .drawer{display:none}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:800px){
+  #app{grid-template-columns:1fr}
+  .sidebar{position:relative;height:auto}
+  .nav{grid-template-columns:repeat(2,1fr)}
+  .userbox{display:none}
+  .main{padding:16px}
+  .chartgrid{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .search{display:none}
+  .side-logo{padding-bottom:10px}
+  .formgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<button class="theme-btn" id="themeBtn" type="button">🌙</button>
+
+<!-- ══════════ ЛОГИН ══════════ -->
+<section id="login">
+  <div class="login-card glass">
+    <span class="logo" data-logo aria-label="LIFE PAY" role="img"></span>
+    <h1>Вход в CRM</h1>
+    <p>Управление заявками, организациями и исполнителями.</p>
+    <form id="loginForm" autocomplete="on">
+      <div class="field">
+        <label for="loginName">Логин</label>
+        <input id="loginName" autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="loginPass">Пароль</label>
+        <input id="loginPass" type="password" autocomplete="current-password">
+      </div>
+      <button class="primary block" id="loginBtn" type="submit">Войти</button>
+      <div id="loginErr" class="error" role="alert"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ══════════ ПРИЛОЖЕНИЕ ══════════ -->
+<section id="app" class="hidden">
+  <aside class="sidebar">
+    <div class="side-logo">
+      <span class="logo" data-logo aria-label="LIFE PAY" role="img"></span>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="userbox">
+      <div class="avatar" id="avatar">?</div>
+      <div>
+        <b id="who">—</b>
+        <div class="small" id="whoRole"></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="top">
+      <div>
+        <h2 id="pageTitle">CRM Система</h2>
+        <div class="sub" id="pageSub">Управление заявками, организациями и исполнителями</div>
+      </div>
+      <input id="search" class="search" placeholder="Поиск по заявкам, организациям, исполнителям…">
+      <button class="iconbtn" id="themeBtn2" type="button" title="Тема">🌙</button>
+      <button class="iconbtn" id="reloadBtn" type="button" title="Обновить">⟳</button>
+      <button class="iconbtn" id="logoutBtn" type="button" title="Выйти">↪</button>
+    </div>
+    <div id="content"></div>
+  </main>
+
+  <aside class="drawer" id="drawer"></aside>
+</section>
+
+<div id="modal" class="modal hidden"></div>
+<div id="toasts"></div>
+
+<script>
+'use strict';
+
+/* ══════════════════════════════════════════════
+   ЛОГОТИП
+══════════════════════════════════════════════ */
+const LOGO_SVG = `<svg viewBox="0 0 142.001 23.585" fill="none"
+  xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible">
+  <rect x="20.3565" y="0.000155866" width="2.97904" height="18.619" fill="currentColor"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M88.9949 0.125808C94.047 0.18981
+    98.1228 4.30518 98.1228 9.3725L98.1221 9.49194C98.0581 14.5441 93.9427 18.6198
+    88.8754 18.6199L88.7559 18.6192C86.3841 18.5891 84.2276 17.6661 82.6069
+    16.171V23.585H79.6279V8.57886C80.0367 3.84942 84.04 0.125001 88.8754
+    0.125001L88.9949 0.125808ZM88.8754 3.10398C85.4135 3.10398 82.6069 5.91055
+    82.6069 9.3725C82.6069 12.8344 85.4135 15.6409 88.8754 15.6409C92.3373 15.6408
+    95.1438 12.8344 95.1438 9.3725C95.1438 5.91059 92.3373 3.10403 88.8754
+    3.10398Z" fill="currentColor"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M111.241 0.125808C116.184
+    0.188434 120.195 4.11802 120.389 9.02858H120.396V18.5862H117.417V16.21C115.763
+    17.7395 113.552 18.6745 111.121 18.6745L111.001 18.6737C105.974 18.61 101.911
+    14.5468 101.847 9.51965L101.847 9.3998C101.847 4.27751 105.999 0.125014
+    111.121 0.125001L111.241 0.125808ZM111.121 3.10398C107.644 3.10399 104.826
+    5.92279 104.826 9.3998C104.826 12.8768 107.644 15.6955 111.121 15.6955C114.598
+    15.6955 117.417 12.8768 117.417 9.3998C117.417 5.9228 114.598 3.10401 111.121
+    3.10398Z" fill="currentColor"/>
+  <path d="M2.97904 10.4267C2.97904 13.3059 5.31313 15.64 8.19237 15.64C9.92774
+    15.64 11.4651 14.7921 12.4127 13.488L15.3243 14.4608C13.9168 16.9437 11.2503
+    18.619 8.19237 18.619C3.66785 18.619 0 14.9512 0 10.4267V0H2.97904V10.4267Z"
+    fill="currentColor"/>
+  <path d="M128.72 6.20621C128.72 9.05103 131.025 11.3573 133.87 11.3576C136.715
+    11.3576 139.021 9.05117 139.021 6.20621V0.000155866H142.001V6.20621L142
+    6.31168C141.944 10.7534 138.325 14.3371 133.87 14.3371C129.415 14.3368
+    125.797 10.7533 125.741 6.31168L125.74 6.20621V0.000155866H128.72V6.20621Z"
+    fill="currentColor"/>
+  <path d="M56.3798 0.000155866C61.502 0.000155866 65.655 4.15242 65.6552
+    9.27457C65.6552 9.77205 65.6134 10.3227 65.538 10.799H65.3485V10.8H50.2724
+    C50.9543 13.5397 53.429 15.5703 56.3798 15.5705C58.1447 15.5705 59.7406
+    14.8439 60.8837 13.674L63.8056 14.8332C62.1138 17.0895 59.417 18.55 56.3798
+    18.55C51.2576 18.5498 47.1054 14.3968 47.1054 9.27457C47.1055 4.15253
+    51.2577 0.000333086 56.3798 0.000155866ZM56.3798 2.97965C53.4037 2.9798
+    50.9124 5.04505 50.2558 7.82047H62.5048C61.8482 5.04491 59.356 2.97965
+    56.3798 2.97965Z" fill="currentColor"/>
+  <path d="M37.4865 0.000155866C40.5444 0.000185923 43.2109 1.67553 44.6184
+    4.15836L41.7073 5.13102C40.7597 3.82692 39.2219 2.97967 37.4865
+    2.97965C34.7325 2.97965 32.4782 5.11493 32.2873 7.82047H39.8459V10.799H32.2727
+    V18.6193H29.2942V8.19254C29.2942 3.66804 32.962 0.000155866 37.4865
+    0.000155866Z" fill="currentColor"/>
+  <path d="M128.967 15.6405C128.967 16.2742 129.093 16.902 129.339
+    17.4883C129.584 18.0746 129.944 18.6083 130.398 19.0585C130.853 19.5087
+    131.393 19.8666 131.989 20.111C132.585 20.3554 133.224 20.4814 133.87
+    20.4814C134.516 20.4814 135.155 20.3554 135.751 20.111C136.347 19.8666
+    136.888 19.5087 137.342 19.0585C137.797 18.6083 138.157 18.0746 138.402
+    17.4883C138.647 16.902 138.773 16.2742 138.773 15.6405H141.752C141.752
+    16.6695 141.548 17.6881 141.15 18.6379C140.753 19.5877 140.171 20.4497
+    139.439 21.1752C138.706 21.9006 137.837 22.4754 136.882 22.8672C135.927
+    23.259 134.903 23.4605 133.87 23.4605C132.837 23.4605 131.814 23.259
+    130.859 22.8672C129.903 22.4754 129.035 21.9006 128.302 21.1752C127.569
+    20.4497 126.988 19.5877 126.59 18.6379C126.193 17.6881 125.988 16.6695
+    125.988 15.6405H128.967Z" fill="currentColor"/>
+</svg>`;
+
+function mountLogos(root) {
+  (root || document).querySelectorAll('[data-logo]').forEach(el => {
+    if (!el.firstElementChild) el.innerHTML = LOGO_SVG;
+  });
+}
+mountLogos();
+
+/* ══════════════════════════════════════════════
+   КОНФИГ / СОСТОЯНИЕ
+══════════════════════════════════════════════ */
+const API         = '/.netlify/functions/api';
+const REQ_TIMEOUT = 20000;
+
+const STATE = {
+  token:    sessionStorage.getItem('lifeToken') || '',
+  me:       null,
+  page:     'dashboard',
+  rows:     [],
+  stats:    null,
+  chart:    null,
+  selected: null,
+  loading:  false
+};
+
+const $   = id => document.getElementById(id);
+const esc = v  => String(v ?? '').replace(/[&<>"']/g, m =>
+  ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+
+/* ══════════════════════════════════════════════
+   ТЕМА
+══════════════════════════════════════════════ */
+function currentTheme() { return localStorage.getItem('lifeTheme') || 'light'; }
+
+function applyTheme(t) {
+  document.documentElement.dataset.theme = t;
+  const icon = t === 'dark' ? '☀️' : '🌙';
+  $('themeBtn').textContent = icon;
+  if ($('themeBtn2')) $('themeBtn2').textContent = icon;
+}
+
+function toggleTheme() {
+  const t = currentTheme() === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('lifeTheme', t);
+  applyTheme(t);
+}
+applyTheme(currentTheme());
+
+/* ══════════════════════════════════════════════
+   ТОСТЫ
+══════════════════════════════════════════════ */
+function toast(msg, type) {
+  const el      = document.createElement('div');
+  el.className  = 'toast ' + (type === 'ok' ? 'ok' : 'err');
+  el.textContent = String(msg);
+  $('toasts').appendChild(el);
+  setTimeout(() => {
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 300);
+  }, 4200);
+}
+
+/* ══════════════════════════════════════════════
+   API
+══════════════════════════════════════════════ */
+async function call(action, ...args) {
+  const ctrl  = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), REQ_TIMEOUT);
+  let res, raw;
+
+  try {
+    res = await fetch(API, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ action, args }),
+      signal:  ctrl.signal
+    });
+    raw = await res.text();
+  } catch (e) {
+    clearTimeout(timer);
+    throw new Error(
+      e.name === 'AbortError'
+        ? 'Превышено время ожидания сервера'
+        : 'Нет связи с сервером'
+    );
+  }
+  clearTimeout(timer);
+
+  let d;
+  try   { d = raw ? JSON.parse(raw) : {}; }
+  catch { throw new Error('Сервер вернул не JSON: ' + raw.slice(0, 180)); }
+
+  if (res.status === 401 || res.status === 403) {
+    forceLogout();
+    throw new Error(d.error || 'Сессия истекла, войдите заново');
+  }
+  if (!res.ok)            throw new Error(d.error || ('Ошибка сервера ' + res.status));
+  if (d && d.ok === false) throw new Error(d.error || 'Ошибка сервера');
+
+  return d.result !== undefined ? d.result : d;
+}
+
+/* ══════════════════════════════════════════════
+   АВТОРИЗАЦИЯ
+══════════════════════════════════════════════ */
+$('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const login = $('loginName').value.trim();
+  const pass  = $('loginPass').value;
+  $('loginErr').textContent = '';
+
+  if (!login || !pass) {
+    $('loginErr').textContent = 'Заполните логин и пароль';
+    return;
+  }
+
+  $('loginBtn').disabled    = true;
+  $('loginBtn').textContent = 'Входим…';
+
+  try {
+    const r       = await call('login', login, pass);
+    STATE.token   = r.token;
+    STATE.me      = r.user || { name: login };
+    sessionStorage.setItem('lifeToken', STATE.token);
+    showApp();
+    await go('dashboard');
+  } catch (err) {
+    $('loginErr').textContent = err.message || String(err);
+  } finally {
+    $('loginBtn').disabled    = false;
+    $('loginBtn').textContent = 'Войти';
+  }
+});
+
+async function restore() {
+  if (!STATE.token) return;
+  try {
+    const r = await call('getDashboardData', STATE.token, {});
+    STATE.me = {
+      name:         r.name         || 'Пользователь',
+      role:         r.role         || '',
+      organization: r.organization || ''
+    };
+    showApp();
+    applyDashData(r);
+    renderDash();
+  } catch {
+    sessionStorage.removeItem('lifeToken');
+    STATE.token = '';
+  }
+}
+
+function forceLogout() {
+  sessionStorage.removeItem('lifeToken');
+  STATE.token    = '';
+  STATE.me       = null;
+  STATE.rows     = [];
+  STATE.selected = null;
+  $('app').classList.add('hidden');
+  $('login').classList.remove('hidden');
+  $('themeBtn').classList.remove('hidden');
+}
+
+async function logout() {
+  try { if (STATE.token) await call('logout', STATE.token); } catch { /* ignore */ }
+  forceLogout();
+}
+
+function showApp() {
+  $('login').classList.add('hidden');
+  $('app').classList.remove('hidden');
+  $('themeBtn').classList.add('hidden');
+
+  const me   = STATE.me || {};
+  const name = me.name || me.login || 'Пользователь';
+  $('who').textContent     = name;
+  $('avatar').textContent  = (name[0] || '?').toUpperCase();
+  $('whoRole').textContent = (me.role || '') +
+    (me.organization ? ' · ' + me.organization : '');
+  buildNav();
+}
+
+/* ══════════════════════════════════════════════
+   НАВИГАЦИЯ
+══════════════════════════════════════════════ */
+const PAGES = {
+  dashboard: { title: 'CRM Система',     sub: 'Управление заявками, организациями и исполнителями' },
+  requests:  { title: 'Заявки',           sub: 'Все входящие заявки технической поддержки' },
+  orgs:      { title: 'Организации',      sub: 'Справочник обслуживаемых организаций' },
+  users:     { title: 'Пользователи',     sub: 'Учётные записи и роли' },
+  settings:  { title: 'Настройки',        sub: 'Параметры системы' },
+  log:       { title: 'Журнал',           sub: 'История действий пользователей' }
+};
+
+function buildNav() {
+  const items = [
+    ['dashboard', '⌂', 'Дашборд'],
+    ['requests',  '▣', 'Заявки']
+  ];
+  if (STATE.me && STATE.me.role === 'ADMIN') {
+    items.push(
+      ['orgs',     '▥', 'Организации'],
+      ['users',    '♙', 'Пользователи'],
+      ['settings', '⚙', 'Настройки'],
+      ['log',      '≡', 'Журнал']
+    );
+  }
+  $('nav').innerHTML = items.map(([page, icon, label]) =>
+    `<button type="button" data-page="${page}"
+      class="${STATE.page === page ? 'active' : ''}">
+      <span>${icon}</span>${label}
+    </button>`
+  ).join('');
+}
+
+$('nav').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-page]');
+  if (btn) go(btn.dataset.page);
+});
+
+function skeleton() {
+  return `<div class="card glass">
+    ${Array.from({ length: 6 }, (_, i) =>
+      `<div class="skel" style="width:${90 - i * 8}%"></div>`
+    ).join('')}
+  </div>`;
+}
+
+/* ══════════════════════════════════════════════
+   РОУТЕР
+══════════════════════════════════════════════ */
+async function go(page) {
+  if (STATE.loading) return;
+  STATE.page = page;
+  buildNav();
+
+  const meta = PAGES[page] || PAGES.dashboard;
+  $('pageTitle').textContent = meta.title;
+  $('pageSub').textContent   = meta.sub;
+  $('content').innerHTML     = skeleton();
+  STATE.loading = true;
+
+  try {
+    switch (page) {
+      case 'dashboard':
+        applyDashData(await call('getDashboardData', STATE.token, {}));
+        renderDash();
+        break;
+      case 'requests':
+        applyDashData(await call('getDashboardData', STATE.token,
+          { q: $('search').value.trim() }));
+        renderRequests();
+        break;
+      case 'orgs':
+        renderSimple('Организации',
+          await call('getOrganizations', STATE.token),
+          ['name','inn','contact','phone','active']);
+        break;
+      case 'users':
+        renderSimple('Пользователи',
+          await call('getUsers', STATE.token),
+          ['login','name','role','organization','active']);
+        break;
+      case 'log':
+        renderSimple('Журнал',
+          await call('getLog', STATE.token),
+          ['ts','login','action','details']);
+        break;
+      default:
+        renderSimple('Настройки',
+          await call('getSettings', STATE.token));
+    }
+  } catch (e) {
+    $('content').innerHTML =
+      `<div class="card glass empty">⚠️ ${esc(e.message)}</div>`;
+    toast(e.message);
+  } finally {
+    STATE.loading = false;
+  }
+}
+
+function applyDashData(d) {
+  d = d || {};
+  STATE.rows  = Array.isArray(d.rows) ? d.rows : [];
+  STATE.stats = d.stats || {
+    total: STATE.rows.length, newCount: 0, inWork: 0, done: 0, overdue: 0
+  };
+  STATE.chart = Array.isArray(d.chart) && d.chart.length ? d.chart : null;
+}
+
+/* ══════════════════════════════════════════════
+   ДАШБОРД
+══════════════════════════════════════════════ */
+function renderDash() {
+  const s     = STATE.stats || {};
+  const total = Number(s.total)    || 0;
+  const nw    = Number(s.newCount) || 0;
+  const iw    = Number(s.inWork)   || 0;
+  const dn    = Number(s.done)     || 0;
+  const sum   = Math.max(1, nw + iw + dn);
+  const p1    = (nw / sum * 100).toFixed(1);
+  const p2    = ((nw + iw) / sum * 100).toFixed(1);
+  const series = STATE.chart || [34, 54, 43, 71, 57, 78, 88];
+  const max    = Math.max(...series.map(v => Number(v) || 0), 1);
+
+  $('content').innerHTML = `
+    <div class="kpis">
+      ${kpi('Всего заявок', total)}
+      ${kpi('Новые', nw)}
+      ${kpi('В работе', iw)}
+      ${kpi('Просрочено', Number(s.overdue) || 0, true)}
+    </div>
+    <div class="chartgrid">
+      <div class="card glass">
+        <div class="cardhead">
+          <b>Динамика заявок</b>
+          <span class="mini">последние ${series.length} дн.</span>
+        </div>
+        <div class="chart">
+          ${series.map(v =>
+            `<div class="bar"
+               style="height:${Math.max(6, (Number(v) || 0) / max * 100)}%"
+               title="${esc(v)}"></div>`
+          ).join('')}
+        </div>
+      </div>
+      <div class="card glass">
+        <div class="cardhead"><b>Статусы заявок</b></div>
+        <div class="donutwrap">
+          <div class="donut"
+            style="background:conic-gradient(
+              #13c8ff 0 ${p1}%,
+              #187bff ${p1}% ${p2}%,
+              #7047ff ${p2}% 100%)">
+            <b>${total}</b>
+          </div>
+          <div class="legend">
+            <span><i class="dot"></i>Новые <b>&nbsp;${nw}</b></span>
+            <span><i class="dot b"></i>В работе <b>&nbsp;${iw}</b></span>
+            <span><i class="dot p"></i>Выполнено <b>&nbsp;${dn}</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card glass requests">
+      <div class="cardhead">
+        <b>Последние заявки</b>
+        <button class="action" data-nav="requests">Все заявки →</button>
+      </div>
+      <div class="tablewrap">${requestTable(STATE.rows.slice(0, 8))}</div>
+    </div>`;
+
+  renderDrawer(STATE.rows[0]);
+}
+
+function kpi(label, value, bad) {
+  return `<div class="card glass kpi">
+    <span class="muted">${esc(label)}</span>
+    <b>${esc(value)}</b>
+    <div class="trend ${bad ? 'bad' : ''}">&nbsp;</div>
+  </div>`;
+}
+
+/* ══════════════════════════════════════════════
+   ТАБЛИЦА ЗАЯВОК
+══════════════════════════════════════════════ */
+function renderRequests() {
+  $('content').innerHTML = `
+    <div class="card glass requests" style="margin-top:0">
+      <div class="cardhead">
+        <b>Все заявки · ${STATE.rows.length}</b>
+        <button class="primary" style="padding:10px 16px"
+          data-act="new">+ Новая заявка</button>
+      </div>
+      <div class="tablewrap">${requestTable(STATE.rows)}</div>
+    </div>`;
+  renderDrawer(STATE.rows[0]);
+}
+
+function rowKey(x, i) {
+  return String(x.id != null ? x.id : (x.no != null ? x.no : 'i' + i));
+}
+
+function requestTable(rows) {
+  if (!rows.length) return '<div class="empty">Заявок пока нет.</div>';
+  return `<table>
+    <thead><tr>
+      <th>No</th>
+      <th>Дата и время</th>
+      <th>Организация</th>
+      <th>Приоритет</th>
+      <th>Статус</th>
+      <th>Исполнитель</th>
+      <th>Комментарий</th>
+      <th>Действия</th>
+    </tr></thead>
+    <tbody>
+      ${rows.map((x, i) => {
+        const k    = rowKey(x, i);
+        const late = x.sla && x.sla.expired
+          ? '<span class="overdue">🔴 ПРОСРОЧКА</span>'
+          : '';
+        return `<tr data-key="${esc(k)}"
+            class="${STATE.selected === k ? 'sel' : ''}">
+          <td><b>${esc(x.no ?? '—')}</b></td>
+          <td>${fmt(x.ts)}</td>
+          <td>${esc(x.organization || '—')}</td>
+          <td>${badge(x.priority)}</td>
+          <td>${badge(x.status)}${late}</td>
+          <td>${esc(x.executor || '—')}</td>
+          <td class="ellipsis" title="${esc(x.comment || '')}">
+            ${esc(x.comment || '')}
+          </td>
+          <td>
+            <button class="action" data-open="${esc(k)}"
+              type="button">Управлять</button>
+          </td>
+        </tr>`;
+      }).join('')}
+    </tbody>
+  </table>`;
+}
+
+/* делегирование кликов */
+$('content').addEventListener('click', e => {
+  const nav = e.target.closest('[data-nav]');
+  if (nav) { go(nav.dataset.nav); return; }
+
+  if (e.target.closest('[data-act="new"]')) { openRequestModal(); return; }
+
+  const openBtn = e.target.closest('[data-open]');
+  const tr      = e.target.closest('tr[data-key]');
+  const key     = openBtn ? openBtn.dataset.open : (tr ? tr.dataset.key : null);
+  if (!key) return;
+
+  const idx = STATE.rows.findIndex((x, i) => rowKey(x, i) === key);
+  if (idx < 0) return;
+
+  STATE.selected = key;
+  document.querySelectorAll('tr[data-key]').forEach(el =>
+    el.classList.toggle('sel', el.dataset.key === key));
+  renderDrawer(STATE.rows[idx]);
+});
+
+/* ══════════════════════════════════════════════
+   DRAWER
+══════════════════════════════════════════════ */
+function renderDrawer(x) {
+  if (!x) {
+    $('drawer').innerHTML =
+      '<h3>Заявка</h3><div class="muted">Выберите заявку из списка.</div>';
+    return;
+  }
+  const isAdmin = STATE.me && STATE.me.role === 'ADMIN';
+  $('drawer').dataset.key = STATE.selected || '';
+  $('drawer').innerHTML   = `
+    <h3>Заявка No${esc(x.no ?? '—')}</h3>
+    <div class="muted">${esc(x.organization || '')} · ${fmt(x.ts)}</div>
+    <div class="detail">
+      <div class="detail-title">Основная информация</div>
+      ${line('Приоритет',   badge(x.priority))}
+      ${line('Статус',      badge(x.status))}
+      ${line('Кто передал', esc(x.employee   || '—'))}
+      ${line('Исполнитель', esc(x.executor   || '—'))}
+      ${line('Комментарий', esc(x.comment    || '—'))}
+
+      <div class="detail-title">Организация</div>
+      ${line('Наименование', esc(x.organization || '—'))}
+      ${line('ИНН',          esc(x.inn          || '—'))}
+      ${line('Контакт',      esc(x.contact      || '—'))}
+      ${line('Телефон',      esc(x.phone        || '—'))}
+      ${line('E-mail',       esc(x.email        || '—'))}
+
+      <div class="detail-title">ККТ</div>
+      ${line('Количество', esc(x.kktCount || '—'))}
+      ${line('РНМ',        esc(x.rnm     || '—'))}
+      ${line('ЗН ККТ',     esc(x.zn      || '—'))}
+      ${line('ФН',         esc(x.fn      || '—'))}
+      ${line('Модель',     esc(x.model   || '—'))}
+
+      <div class="detail-title">Сопровождение</div>
+      ${line('Нужен выезд',  yes(x.needTrip))}
+      ${line('Адрес выезда', esc(x.tripAddress || '—'))}
+      ${line('ЕСП',          yes(x.esp))}
+      ${line('КЭП',          yes(x.kep))}
+      ${line('Wi-Fi',        yes(x.wifi))}
+
+      ${x.sla && x.sla.expired
+        ? '<div class="overdue" style="margin-top:12px">🔴 ПРОСРОЧКА — срок 60 часов истёк</div>'
+        : ''}
+    </div>
+    <div class="drawer-actions">
+      ${isAdmin
+        ? '<button class="primary" type="button" data-d="edit">Изменить статус</button>'
+        : ''}
+      <button type="button" data-d="requests">Все заявки</button>
+    </div>`;
+}
+
+$('drawer').addEventListener('click', e => {
+  const b = e.target.closest('[data-d]');
+  if (!b) return;
+  if (b.dataset.d === 'requests') go('requests');
+  if (b.dataset.d === 'edit')     openStatusModal();
+});
+
+/* ══════════════════════════════════════════════
+   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+══════════════════════════════════════════════ */
+function line(a, b) {
+  return `<div class="row"><span>${a}</span><b>${b}</b></div>`;
+}
+
+function yes(v) {
+  return (v === true || v === 'Да' || v === 'true' || v === 1) ? 'Да' : 'Нет';
+}
+
+function fmt(v) {
+  if (!v) return '—';
+  const d = new Date(v);
+  if (isNaN(d)) return esc(v);
+  return d.toLocaleString('ru-RU', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
+}
+
+function badge(v) {
+  const map = {
+    'Выполнено':    'done',  'Выполнена':   'done',
+    'В работе':     'work',  'Ожидание':    'wait',
+    'Новая заявка': 'new',   'Новая':       'new',
+    'Не выполнена': 'fail',  'Отменена':    'fail',
+    'Критический':  'critical',
+    'Высокий':      'high',
+    'Средний':      'medium',
+    'Низкий':       'low'
+  };
+  return `<span class="badge ${map[v] || 'low'}">${esc(v || '—')}</span>`;
+}
+
+/* ══════════════════════════════════════════════
+   ПРОСТЫЕ ТАБЛИЦЫ (орг, пользователи, журнал, настройки)
+══════════════════════════════════════════════ */
+function renderSimple(title, data, cols) {
+  let rows = Array.isArray(data)
+    ? data
+    : Object.entries(data || {}).map(([k, v]) => ({
+        key:   k,
+        value: typeof v === 'object' ? JSON.stringify(v) : v
+      }));
+
+  if (!rows.length) {
+    $('content').innerHTML = `
+      <div class="card glass">
+        <div class="cardhead"><b>${esc(title)}</b></div>
+        <div class="empty">Нет данных.</div>
+      </div>`;
+    return;
+  }
+
+  /* ── ИСПРАВЛЕННАЯ СТРОКА: обычная стрелочная функция вместо =>` ── */
+  const head = (cols && cols.length)
+    ? cols.filter(c => c in rows[0])
+    : Object.keys(rows[0]);
+
+  $('content').innerHTML = `
+    <div class="card glass" style="margin-top:0">
+      <div class="cardhead"><b>${esc(title)} · ${rows.length}</b></div>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr>
+          </thead>
+          <tbody>
+            ${rows.map(r => `<tr>${head.map(h => {
+              let v = r[h];
+              if (v === true)  v = 'Да';
+              if (v === false) v = 'Нет';
+              if (h === 'ts')  v = fmt(v);
+              return `<td class="ellipsis" title="${esc(v ?? '')}">
+                ${esc(v ?? '')}
+              </td>`;
+            }).join('')}</tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+/* ══════════════════════════════════════════════
+   МОДАЛКА: НОВАЯ ЗАЯВКА
+══════════════════════════════════════════════ */
+let kktSeq = 0;
+
+function openRequestModal() {
+  kktSeq = 0;
+  $('modal').classList.remove('hidden');
+  $('modal').innerHTML = `
+    <div class="modal-card glass">
+      <div class="modal-head">
+        <h3>Новая заявка</h3>
+        <button class="iconbtn" type="button" data-m="close">✕</button>
+      </div>
+      <form id="reqForm">
+        <div class="formgrid" style="margin-top:14px">
+          <div class="field">
+            <label>Организация *</label>
+            <input name="org_name" required>
+          </div>
+          <div class="field">
+            <label>ИНН</label>
+            <input name="inn" inputmode="numeric" maxlength="12">
+          </div>
+          <div class="field">
+            <label>Контактное лицо</label>
+            <input name="contact_person">
+          </div>
+          <div class="field">
+            <label>Телефон *</label>
+            <input name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <input name="email" type="email">
+          </div>
+          <div class="field">
+            <label>Кто передал</label>
+            <input name="lpEmployee"
+              value="${esc((STATE.me && STATE.me.name) || '')}">
+          </div>
+          <div class="field">
+            <label>Приоритет</label>
+            <select name="priority">
+              <option>Низкий</option>
+              <option selected>Средний</option>
+              <option>Высокий</option>
+              <option>Критический</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Исполнитель (СП)</label>
+            <input name="executor"
+              value="${esc((STATE.me && STATE.me.organization) || '')}">
+          </div>
+          <div class="field full">
+            <label>Комментарий</label>
+            <textarea name="comment"></textarea>
+          </div>
+          <div class="full">
+            <div class="cardhead" style="margin-bottom:8px">
+              <b>ККТ</b>
+              <button class="action" type="button"
+                data-m="addkkt">+ Добавить кассу</button>
+            </div>
+            <div id="kktList"></div>
+          </div>
+          <div class="field">
+            <label>Нужен выезд</label>
+            <select name="need_trip">
+              <option>Нет</option><option>Да</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Адрес выезда</label>
+            <input name="trip_address">
+          </div>
+          <div class="field">
+            <label>Зарегистрирован в ЕСП</label>
+            <select name="registered_esp">
+              <option>Нет</option><option>Да</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Есть КЭП</label>
+            <select name="has_kep">
+              <option>Нет</option><option>Да</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Есть Wi-Fi</label>
+            <select name="has_wifi">
+              <option>Нет</option><option>Да</option>
+            </select>
+          </div>
+        </div>
+        <div class="error" id="reqErr"></div>
+        <div class="modal-actions">
+          <button class="secondary" type="button" data-m="close">Отмена</button>
+          <button class="primary" type="submit" id="reqSubmit">Создать заявку</button>
+        </div>
+      </form>
+    </div>`;
+
+  addKkt();
+  $('reqForm').addEventListener('submit', submitRequest);
+}
+
+function addKkt() {
+  kktSeq++;
+  const wrap       = document.createElement('div');
+  wrap.className   = 'kkt-item';
+  wrap.innerHTML   = `
+    <div class="kkt-head">
+      <span>Касса ${kktSeq}</span>
+      ${kktSeq > 1
+        ? '<button class="linkbtn" type="button" data-m="delkkt">Удалить</button>'
+        : ''}
+    </div>
+    <div class="formgrid">
+      <div class="field"><label>РНМ</label><input data-k="rnm"></div>
+      <div class="field"><label>ЗН ККТ</label><input data-k="znKkt"></div>
+      <div class="field"><label>ФН</label><input data-k="fn"></div>
+      <div class="field"><label>Модель ККТ</label><input data-k="modelKkt"></div>
+    </div>`;
+  $('kktList').appendChild(wrap);
+}
+
+$('modal').addEventListener('click', e => {
+  if (e.target === $('modal')) { closeModal(); return; }
+  const b = e.target.closest('[data-m]');
+  if (!b) return;
+  if (b.dataset.m === 'close')  closeModal();
+  if (b.dataset.m === 'addkkt') addKkt();
+  if (b.dataset.m === 'delkkt') {
+    b.closest('.kkt-item').remove();
+    renumberKkt();
+  }
+});
+
+function renumberKkt() {
+  [...document.querySelectorAll('#kktList .kkt-item')].forEach((el, i) => {
+    el.querySelector('.kkt-head span').textContent = 'Касса ' + (i + 1);
+  });
+}
+
+function closeModal() {
+  $('modal').classList.add('hidden');
+  $('modal').innerHTML = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !$('modal').classList.contains('hidden'))
+    closeModal();
+});
+
+async function submitRequest(e) {
+  e.preventDefault();
+  const payload = Object.fromEntries(new FormData(e.target).entries());
+  payload.kassas = [...document.querySelectorAll('#kktList .kkt-item')]
+    .map(el => {
+      const o = {};
+      el.querySelectorAll('[data-k]').forEach(inp => {
+        o[inp.dataset.k] = inp.value.trim();
+      });
+      return o;
+    })
+    .filter(o => Object.values(o).some(v => v));
+
+  if (!payload.kassas.length) payload.kassas = [{}];
+
+  $('reqErr').textContent    = '';
+  $('reqSubmit').disabled    = true;
+  $('reqSubmit').textContent = 'Сохраняем…';
+
+  try {
+    await call('createRequest', STATE.token, payload);
+    closeModal();
+    toast('Заявка создана', 'ok');
+    await go('requests');
+  } catch (err) {
+    $('reqErr').textContent = err.message;
+  } finally {
+    if ($('reqSubmit')) {
+      $('reqSubmit').disabled    = false;
+      $('reqSubmit').textContent = 'Создать заявку';
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════
+   МОДАЛКА: СМЕНА СТАТУСА
+══════════════════════════════════════════════ */
+function openStatusModal() {
+  const key  = $('drawer').dataset.key;
+  const item = STATE.rows.find((x, i) => rowKey(x, i) === key);
+  if (!item) { toast('Заявка не выбрана'); return; }
+
+  const statuses = [
+    'Новая заявка', 'В работе', 'Ожидание',
+    'Не выполнена', 'Выполнена', 'Отменена'
+  ];
+
+  $('modal').classList.remove('hidden');
+  $('modal').innerHTML = `
+    <div class="modal-card glass" style="width:min(520px,100%)">
+      <div class="modal-head">
+        <h3>Заявка No${esc(item.no)}</h3>
+        <button class="iconbtn" type="button" data-m="close">✕</button>
+      </div>
+      <form id="stForm">
+        <div class="field">
+          <label>Статус</label>
+          <select name="status">
+            ${statuses.map(s =>
+              `<option ${s === item.status ? 'selected' : ''}>${s}</option>`
+            ).join('')}
+          </select>
+        </div>
+        <div class="field">
+          <label>Исполнитель</label>
+          <input name="executor" value="${esc(item.executor || '')}">
+        </div>
+        <div class="field">
+          <label>Комментарий</label>
+          <textarea name="comment">${esc(item.comment || '')}</textarea>
+        </div>
+        <div class="error" id="stErr"></div>
+        <div class="modal-actions">
+          <button class="secondary" type="button" data-m="close">Отмена</button>
+          <button class="primary" type="submit" id="stSubmit">Сохранить</button>
+        </div>
+      </form>
+    </div>`;
+
+  $('stForm').addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const patch = Object.fromEntries(new FormData(ev.target).entries());
+    $('stSubmit').disabled = true;
+    try {
+      await call('updateRequest', STATE.token,
+        item.id != null ? item.id : item.no, patch);
+      closeModal();
+      toast('Сохранено', 'ok');
+      await go(STATE.page);
+    } catch (err) {
+      $('stErr').textContent = err.message;
+      $('stSubmit').disabled = false;
+    }
+  });
+}
+
+/* ══════════════════════════════════════════════
+   ПОИСК (дебаунс 300 мс)
+══════════════════════════════════════════════ */
+let searchTimer = null;
+$('search').addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    if (STATE.page === 'requests') go('requests');
+    else if (STATE.page === 'dashboard' && $('search').value.trim())
+      go('requests');
+  }, 300);
+});
+
+/* ══════════════════════════════════════════════
+   КНОПКИ ШАПКИ
+══════════════════════════════════════════════ */
+$('themeBtn').addEventListener('click',  toggleTheme);
+$('themeBtn2').addEventListener('click', toggleTheme);
+$('reloadBtn').addEventListener('click', () => go(STATE.page));
+$('logoutBtn').addEventListener('click', logout);
+
+/* ══════════════════════════════════════════════
+   СТАРТ
+══════════════════════════════════════════════ */
+restore();
+</script>
+</body>
+</html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
